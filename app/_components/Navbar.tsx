@@ -1,23 +1,44 @@
 import Link from "next/link";
-import Image from 'next/image'; // Import if using Next.js 10 or below
+import Image from "next/image"; // Import if using Next.js 10 or below
 
 const Navbar = () => {
   return (
-    <nav className="border-2 border-red-800 flexBetween gap-12 relative  py-5 max-container">
-      <div className="flex-1 flexStart gap-10 " >
-      <Link href="/">
+    <nav className="shadow-md flexBetween gap-12 relative  py-1 max-container">
+      <div className="flexBetween ml-20">
+        <Link href="/" className="mr-10">
           <Image src="/eurobridg.jpg" alt="logo" width={140} height={29} />
         </Link>
 
-        <ul className=" h-full gap-12 xl:flex hidden text-small ">
-           < a  className="regular-16 text-[#515B6F] flex justify-center cursor-pointer pb-1.5 transition-all hover:text-[#4640DE] " href="/">
-           brows companies
-          </a>
-          
+        <ul className=" h-full flex text-small ml-16  ">
+          <Link
+            className=" text-[15px] regular-16 text-[#515B6F] flex justify-center cursor-pointer pb-1.5 transition-all hover:text-[#4640DE] ml-24"
+            href="/"
+          >
+            find interships
+          </Link>
         </ul>
       </div>
-      
-      
+      <div className="flexBetween mr-18">
+        <ul className=" h-full  flex mr-16   ">
+          <Link
+            className=" mr-24 text-[15px] regular-16 text-[#515B6F] flex justify-center cursor-pointer transition-all hover:text-[#4640DE] "
+            href="/"
+          >
+            browse copmanies
+          </Link>
+        </ul>
+        <div className="flex justify-around   ">
+          <button type="button" className="p-3 text-[#4640DE] ml-10 ">
+            login
+          </button>
+          <button
+            type="button"
+            className=" p-3 text-[#FFFFFF]  bg-[#4640DE] mr-14 ml-14"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
     </nav>
   );
 };
