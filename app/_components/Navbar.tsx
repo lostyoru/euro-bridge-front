@@ -28,12 +28,15 @@ const Navbar = () => {
           </Link>
         </ul>
         <div className="flex justify-around   ">
-          <button type="button" className="p-3 text-[#4640DE] ml-10 ">
+          <button
+            type="button"
+            className=" border-r-2 p-3 text-[#4640DE] ml-10 "
+          >
             login
           </button>
           <button
             type="button"
-            className=" p-3 text-[#FFFFFF]  bg-[#4640DE] mr-14 ml-14"
+            className=" p-3 text-[#FFFFFF]  bg-[#4640DE] mr-14 ml-8"
           >
             Sign Up
           </button>
