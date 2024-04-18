@@ -12,7 +12,7 @@ const Navbar = () => {
         <ul className=" h-full flex text-small ml-16  ">
           <Link
             className=" text-[15px] regular-16 text-[#515B6F] flex justify-center cursor-pointer pb-1.5 transition-all hover:text-[#4640DE] ml-24 capitalize"
-            href="/"
+            href="/Interships"
           >
             find interships
           </Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
         <ul className=" h-full  flex mr-16   ">
           <Link
             className=" mr-24 text-[15px] regular-16 text-[#515B6F] flex justify-center cursor-pointer transition-all hover:text-[#4640DE] capitalize "
-            href="/"
+            href="/Companies"
           >
             browse copmanies
           </Link>
