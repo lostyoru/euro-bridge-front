@@ -98,7 +98,7 @@ function Intershipshome() {
             <h1 className="text-black font-bold"> Social Media assistant</h1>
             <h2 className="text-[#515B6F]"> Dropbox paris.france</h2>
             <div className="flex flex-row justify-between gap-2 ">
-                <button type="button" className="bg-white border-[#4640DE] rounded-xl text-[#4640DE] p-0.5 "> full time</button>
+                <button type="button" className="bg-white border-2 border-[#4640DE] rounded-full text-[#4640DE] p-0.5 "> full time</button>
                 <button type="button" className="  text-[#4640DE] rounded-xl p-0.5"> marketing</button>
                 <button type="button" className=" text-[#4640DE] rounded-xl  p-0.5"> Design</button>
             </div>
