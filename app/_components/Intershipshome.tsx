@@ -12,7 +12,7 @@ function Intershipshome() {
         </p>
         <div>
           <Link href="/" className="text-[#4640DE] flex flex-row ">
-            Show all Internships{" "}
+            Show all Internships
             <Image
               src="/Icon.png"
               alt="logo"
