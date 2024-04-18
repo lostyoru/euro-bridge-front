@@ -33,3 +33,11 @@ body {
   @apply lg:px-20 py-6 px-5;
 }
 
+.footer { 
+  background-color: #202430;
+  padding: 100px 30px 30px 30px;
+}
+
+.footer-spc-color {
+  color: #92989F;
+}
