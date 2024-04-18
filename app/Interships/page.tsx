@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function page() {
   return (
     <div className="flex flex-col justify-center items-center bg-[#F8F8FD] h-[400px]">
-      <p className="text-[35px] leading-[4.5rem] mt-10 mb-6 font-bold font-body w-1/3 ">
+    <p className="text-[35px] leading-[4.5rem] mt-10 mb-8 font-bold font-body w-1/3 ">
         Find your{" "}
         <span className="text-[#26A4FF] ">
           {" "}

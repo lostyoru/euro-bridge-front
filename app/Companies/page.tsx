@@ -5,9 +5,9 @@ import Image from "next/image";
 function page() {
   return (
     <div className="flex flex-col justify-center items-center mt-20">
-    <p className="text-[35px] leading-[4.5rem] mt-10 mb-6 font-bold font-body w-1/3 ">
+    <p className="text-[35px] leading-[4.5rem] mt-10 mb-8 font-bold font-body w-1/3 ">
       Find your{" "}
-      <span className="text-[#26A4FF] ">
+      <span className="text-[#26A4FF]  static">
         
         Dream companies
         <Image
@@ -15,7 +15,7 @@ function page() {
           alt="logo"
           width={300}
           height={5}
-          className="translate-x-20 ml-20  "
+          className="translate-x-20 ml-20 absolute bottom-40 left-30"
         />
       </span>
     </p>
