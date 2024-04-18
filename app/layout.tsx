@@ -23,7 +23,7 @@ export default function RootLayout({
         <Navbar />
 
         <main className="relative ">{children}</main>
-
+<Footer/>
       
       </body>
     </html>
