@@ -4,7 +4,7 @@ import Image from "next/image";
 import IntershipCard from "./IntershipCard";
 function Intershipshome() {
   return (
-    <div className=" w-full h-[740px] bg-[#F8F8FD] ">
+    <div className="bg-[#F8F8FD] pb-36">
       <br />
       <div className="flex justify-between mx-20 items-center  ">
         <p className="font-bold text-[25px]  ">
@@ -24,7 +24,11 @@ function Intershipshome() {
         </div>
       </div>
       <br />
-      <div className="h-56 grid grid-cols-2 gap-5  content-start justify-items-center mr-20">
+      <div className=" grid grid-cols-2 gap-5  content-start justify-items-center mr-20">
+      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
       <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
       <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
       <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>

@@ -6,6 +6,8 @@ type Props = {
   post: string;
   type: string;
   number: number;
+  image: string;
+  key: number;
 };
 function CompanyCard(source: Props) {
   return (
@@ -13,22 +15,21 @@ function CompanyCard(source: Props) {
       <div className="flex mt-4 flex-row justify-between  items-start">
         <Link href="/" >
           <Image
-            src="/Dropbox.png"
-            alt="dropbox"
+            src={source.image}
+            alt="Company Logo"
             width={50}
             height={50}
-            
           />
         </Link>
-        <div className="text-[#4640DE] bg-[#F8F8FD]">
-          {source.number}Interships
+        <div className="text-[#4640DE] bg-[#F8F8FD] py-2 px-3">
+          {source.number + ` `}Interships
         </div>
       </div>
-      <h1 className="font-semibold text-[20px]">{source.name}</h1>
+      <p className="font-bold text-[20px] p-0">{source.name}</p>
       <p className="text-[14px] text-[#515B6F]">{source.post}</p>
       <button
         type="button"
-        className=" self-start px-1.5 text-[#FFB836] border-2 border-[#FFB836]  rounded-full "
+        className=" self-start px-3 text-[#FFB836] border-2 border-[#FFB836]  rounded-full "
       >
         {source.type}
       </button>

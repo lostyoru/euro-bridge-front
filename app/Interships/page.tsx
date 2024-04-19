@@ -6,19 +6,19 @@ import IntershipCardAll from "../_components/IntershipCardAll";
 
 export default function page() {
   return (
-    <div>
-      <div className="flex flex-col justify-center items-center bg-[#F8F8FD] h-[400px]">
-        <p className="text-[35px] leading-[4.5rem] mt-10 mb-8 font-bold font-body w-1/3 ">
+    <div className="p-20">
+      <div className="flex flex-col justify-center items-center bg-[#F8F8FD]">
+        <p className="text-[32px] leading-[4.5rem] mt-10 mb-8 font-bold font-body w-1/3 ">
           Find your{" "}
           <span className="text-[#26A4FF] ">
             {" "}
-            Dream interships{" "}
+            dream interships{" "}
             <Image
               src="/Line.png"
               alt="logo"
               width={300}
               height={30}
-              className="translate-x-20 ml-20 "
+              className="translate-x-10 ml-20 "
             />
           </span>
         </p>
@@ -31,18 +31,18 @@ export default function page() {
         <Search />
       </div>
 
-      <div className=" bg- py-8 px-20 mx-10 flex flex-row h-[1100px]  ">
+      <div className=" py-8 px-20 mx-10 flex flex-row">
       <FilterSection />
-        <div>
-        <h1 className="text-[22px] font-bold translate-x-20 mx-12 mb-10"> all interships</h1>
-        <div className="  translate-x-10 ml-20 grid grid-cols-1 h-56  gap-5  content-start justify-items-center mr-20 ">
+        <div className="px-10">
+        <p className="text-[22px] font-bold mb-10">All interships</p>
+        <div className="  translate-x-10 ml-20 grid grid-cols-1  gap-5  content-start justify-items-center ">
         
-          <IntershipCardAll post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-          <IntershipCardAll post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-          <IntershipCardAll post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-          <IntershipCardAll post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-          <IntershipCardAll post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-          <IntershipCardAll post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+          <IntershipCardAll image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png" post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+          <IntershipCardAll image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png" post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+          <IntershipCardAll image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png" post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+          <IntershipCardAll image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png" post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+          <IntershipCardAll image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png" post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+          <IntershipCardAll image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png" post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
          
         </div>
       </div>

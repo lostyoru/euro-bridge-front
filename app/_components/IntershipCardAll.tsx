@@ -4,26 +4,27 @@ import Link from "next/link";
 type Props = {
   post: string;
   location: string;
+  image: string;
 };
 
 function IntershipCardAll(source: Props) {
   return (
     
-    <div className="flex flex-row justify-between border-2  bg-white w-[1000px] h-[130px] ">
+    <div className="flex flex-row justify-between border-2  bg-white w-[1000px]">
       <div className=" flex flex-row justify-start gap-10 items-center ">
         
         <Link href="/" className="ml-8">
           <Image
-            src="/Dropbox.png"
-            alt="dropbox"
+            src={source.image}
+            alt="intership"
             width={50}
             height={50}
             className="ml-4"
           />
         </Link>
-        <div className="flex flex-col leading-[1.8rem] ">
-          <h1 className="text-black font-bold"> {source.post}</h1>
-          <h2 className="text-[#515B6F]"> {source.location}</h2>
+        <div className="flex flex-col leading-[1.8rem] p-5 ">
+          <h1 className="text-black font-bold my-2"> {source.post}</h1>
+          <h2 className="text-[#515B6F] mb-3"> {source.location}</h2>
           <div className="flex flex-row justify-between gap-2 ">
             <button
               type="button"

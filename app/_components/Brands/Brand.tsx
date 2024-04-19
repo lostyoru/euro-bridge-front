@@ -26,6 +26,7 @@ function Brand() {
           <div className=" flex justify-center items-center flex-1 max-w-[150px] min-w-[120px] mx-[4rem] ">
             <Image src={vodafone} alt={"disney"} />
           </div>
+          
         </div>
       </div>
     </div>
