@@ -1,5 +1,6 @@
 import React from 'react'
 import { MouseEvent } from 'react'
+import AccountType from './AccounType';
 type FormSigninProps = {
     switcher: (e: any) => void;
     switchClass: string;
@@ -9,14 +10,8 @@ const FormSignin = (source:FormSigninProps) => {
 
   return (
     <form className={`sign-in-form absolute inset-0 z-1  ${source.switchClass} xl:mt-5`} >
-            
-        <div className="account-type flex flex-row justify-center items-center mb-3">
-            <input className='hidden' type="radio" id="intership-seeker" name="account-type" value="intership-seeker" />
-            <label className='cursor-pointer p-2 text-[#4640DE] font-semibold m-1 checkbox-label' htmlFor="intership-seeker">Intership Seeker</label>
-            <input className='hidden' type="radio" id="company" name="account-type" value="company" />
-            <label className='cursor-pointer p-2 text-[#4640DE] font-semibold checkbox-label' htmlFor="company">Company</label> 
-        </div>
-
+        
+        <AccountType name="account-type-sign-in" intershipId='intership-seeker' companyId='company'/>
         <div className="input-group flex flex-col justify-start items-start mb-2">
             <h3 className='text-[28px] font-bold text-center mb-12 w-full'>Welcome Back, Dude</h3>
             <div className="login-txt w-fit mx-auto">
