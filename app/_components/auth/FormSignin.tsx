@@ -9,10 +9,10 @@ type FormSigninProps = {
 const FormSignin = (source:FormSigninProps) => {
 
   return (
-    <form className={`sign-in-form absolute inset-0 z-1  ${source.switchClass} xl:mt-5`} >
-        
+    <form className={`sign-in-form absolute inset-0 z-1 w-full ${source.switchClass} xl:mt-5`} >
+
         <AccountType name="account-type-sign-in" intershipId='intership-seeker' companyId='company'/>
-        <div className="input-group flex flex-col justify-start items-start mb-2">
+        <div className="input-group flex flex-col justify-start items-start mb-2 ">
             <h3 className='text-[28px] font-bold text-center mb-12 w-full'>Welcome Back, Dude</h3>
             <div className="login-txt w-fit mx-auto">
                 <p className='spc-text w-fit mx-auto p-1 relative text-[#202430] mb-6 '>Or login with with email</p>

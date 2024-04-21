@@ -9,7 +9,7 @@ type AuthFormProps = {
 const AuthForm = (source: AuthFormProps) => {
 
   return (
-    <div className="relative form xl:w-1/2  bg-white ">
+    <div className="relative form w-full xl:w-1/2 bg-white ">
         <FormSignin switcher={source.switcher} switchClass={source.signinClass} />
         <FormSignup switcher={source.switcher} switchClass={source.signupClass}/>
     </div>  
