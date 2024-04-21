@@ -2,6 +2,11 @@ import React from "react";
 import Search from "../_components/Search";
 import Image from "next/image";
 import CompanyCard from "../_components/CompanyCard";
+import Link from "next/link";
+
+
+
+
 
 function page() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);
@@ -10,7 +15,7 @@ function page() {
       <div className="flex flex-col justify-center items-center mt-20">
         <p className="text-[33px] leading-[4.5rem] mt-10 mb-8 font-bold w-1/3 ">
           Find your{" "}
-          <span className="text-[#26A4FF]  static">
+          <span className="text-second static">
             dream companies
             <Image
               src="/Line.png"
@@ -37,6 +42,7 @@ function page() {
         </p>
         <div className="grid  grid-cols-3 gap-12 justify-items-center mt-8 ">
           {companies.map((company, index) => (
+          
               <CompanyCard
               name="Discord"
               image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png"

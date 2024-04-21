@@ -10,7 +10,7 @@ export default function page() {
       <div className="flex flex-col justify-center items-center bg-[#F8F8FD]">
         <p className="text-[30px] leading-[4.5rem] mt-10 mb-8 font-bold w-1/3 ">
           Find your{" "}
-          <span className="text-[#26A4FF] ">
+          <span className="text-second ">
             {" "}
             dream interships{" "}
             <Image
@@ -22,7 +22,7 @@ export default function page() {
             />
           </span>
         </p>
-        <p className="text-[#515B6F]  mr-6 text-[12px] mb-20">
+        <p className="text-p mr-6 text-[12px] mb-20">
           {" "}
           Find your next internship in Europe at companies like HubSpot, Nike,
           and Dropbox
