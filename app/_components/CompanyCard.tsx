@@ -17,7 +17,7 @@ function CompanyCard(source: Props) {
   return (
     <div className="flex flex-col px-4 justify-start gap-10 p-4 border-2 border-[#D6DDEB] h-[340px] w-[340px]">
       <div className="flex mt-4 flex-row justify-between  items-start">
-        <Link href="/" >
+        <Link href="/Companie" >
           <Image
             src={source.image}
             alt="Company Logo"
