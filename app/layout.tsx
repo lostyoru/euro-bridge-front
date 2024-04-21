@@ -24,10 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <head> <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet"></link></head>
       <body className={inter.className}>
-        <Navbar />
+        {/* <Navbar /> */}
 
         <main>{children}</main>
-        <Footer/>
+        {/* <Footer/> */}
       </body>
 
     </html>

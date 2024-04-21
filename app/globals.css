@@ -41,3 +41,31 @@ footer {
 .footer-spc-color {
   color: #92989F;
 }
+
+input[type='radio']:checked + .checkbox-label {
+  background-color: #E9EBFD;
+}
+
+.spc-text::after, .spc-text::before {
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 2px;
+  background-color: #D6DDEB;
+  top: 50%;
+}
+
+.spc-text::after {
+  right: -50%;
+}
+
+.spc-text::before {
+  left: -50%;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+
