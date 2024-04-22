@@ -37,7 +37,7 @@ function Intership() {
               <ul>
                 <li>
                
-                  <p className="text-p mt-4">Currently enrolled in a Bachelor's or Master's degree program, preferably in Marketing, Business, or a related field</p>
+                  <p className="text-p mt-4">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
                 </li>
                 <li>
                   <p className="text-p mt-2">Strong communication and writing skills</p>
@@ -62,7 +62,7 @@ function Intership() {
               <div >
               <ul>
                 <li>
-                  <p className="text-p mt-4">Currently enrolled in a Bachelor's or Master's degree program, preferably in Marketing, Business, or a related field</p>
+                  <p className="text-p mt-4">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
                 </li>
                 <li>
                   <p className="text-p mt-2">Strong communication and writing skills</p>
