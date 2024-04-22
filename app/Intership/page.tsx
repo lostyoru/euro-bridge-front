@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import IntershipCard1 from "../_components/IntershipCard1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+
 function Intership() {
   return (
     <div>
@@ -36,7 +38,12 @@ function Intership() {
               <div >
               <ul>
                 <li>
-               
+                <FontAwesomeIcon
+              icon={faCheckCircle}
+              className=" text-lg mr-4"
+              width={30}
+              height={30}
+            />
                   <p className="text-p mt-4">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
                 </li>
                 <li>
