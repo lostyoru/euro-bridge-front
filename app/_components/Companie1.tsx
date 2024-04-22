@@ -4,7 +4,7 @@ import Image from "next/image";
 import IntershipCard from "./IntershipCard";
 function Companie1() {
   return (
-    <div className="bg-[#F8F8FD] pb-36">
+    <div className="bg-[#F8F8FD] pb-36 ">
       <br />
       <div className="flex justify-between px-24 items-center  ">
         <p className="font-bold text-[30px] font-body mt-8 ">
@@ -24,7 +24,7 @@ function Companie1() {
         </div>
       </div>
       <br />
-      <div className=" grid grid-cols-2 gap-5  content-start justify-items-center mr-20">
+      <div className=" grid lg:grid-cols-2 gap-5 md:content-center content-start justify-items-center lg:mr-20">
         <IntershipCard
           post="Socail Media Assistant"
           location=" Paris Hamburg . germany"

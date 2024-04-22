@@ -13,30 +13,35 @@ import Companie1 from "../_components/Companie1";
 function Companie() {
   return (
     <div>
-      <div className="bg-bground p-24 flex flex-col ">
-        <div className="flex flex-row gap-6 items-center">
-          <Image
-            src="/Stripe.png"
-            alt="Company Logo"
-            width={100}
-            height={80}
-            className="mr-4 flex  "
-          />
-          <div>
-            <h1 className="capitalize font-bold font-body text-[26px]">
-              {" "}
-              Stripe
-            </h1>
-          </div>
-          <div className="border-[1.5px] border-primary  text-primary h-8 px-4 flex items-center">
+      <div className="flex flex-row gap-6 items-center bg-bground p-24">
+        <Image
+          src="/Stripe.png"
+                alt="Company Logo"
+          width={100}
+          height={80}
+          className="mr-4 flex  "
+        />
+        <div className="flex flex-col">
+          <div className="flex flex-row mb-4 ">
+          <div className="mr-6">
+          <h1 className="capitalize font-bold font-body text-[37px]">
             {" "}
-            43 intesrsips
+            Stripe
+          </h1>
           </div>
-          <div className=" flex text-[13px]  translate-x-3 px-2 items-center">
-            <Link href="https://www.facebook.com/" className="text-primary ">
-              hhtps://steipe.com
-            </Link>
-          </div>
+
+         
+          <div className="border-[1.5px] border-primary  text-primary h-8 px-4 flex items-center mt-3">
+          {" "}
+          43 intesrsips
+        </div>
+        </div>
+       
+        <div className=" flex text-[15px]    items-center">
+          <Link href="https://www.facebook.com/" className="text-primary ">
+            hhtps://steipe.com
+          </Link>
+        </div>
         </div>
       </div>
       <div className="p-24 flex flex-col gap-3  ">
