@@ -25,18 +25,18 @@ function Intershipshome() {
       </div>
       <br />
       <div className=" grid grid-cols-2 gap-5  content-start justify-items-center mr-20">
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
-      <IntershipCard post="Socail Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
+      <IntershipCard post="Social Media Assistant" location=" Paris Hamburg . germany"/>
      
       </div>
     </div>

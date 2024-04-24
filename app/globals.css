@@ -41,3 +41,71 @@ footer {
 .footer-spc-color {
   color: #92989F;
 }
+
+input[type='radio']:checked + .checkbox-label {
+  background-color: #E9EBFD;
+}
+
+.spc-text::after, .spc-text::before {
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 2px;
+  background-color: #D6DDEB;
+  top: 50%;
+}
+
+.spc-text::after {
+  right: -50%;
+}
+
+.spc-text::before {
+  left: -50%;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.side-bar {
+  border-right: solid 2px #CCCCF5;
+}
+
+.active-li {
+  background-color: #E9EBFD;
+}
+
+.active-li {
+  color: #4640DE;
+  font-weight: 500;
+}
+
+.active-li::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 80%;
+  background-color: #4640DE;
+  top: 50%;
+  translate: 0 -50%;
+  left: -19px;
+}
+
+li:hover {
+  color: #4640DE;
+  background-color: #E9EBFD;
+}
+
+li:hover .side-bar-icons {
+  color: #4640DE;
+}
+
+.side-bar-icons {
+  color: #7C8493;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+}
+
+
