@@ -73,7 +73,7 @@ input[type="checkbox"] {
 }
 
 .active-li {
-  background-color: #CCCCF5;
+  background-color: #E9EBFD;
 }
 
 .active-li {
@@ -93,7 +93,12 @@ input[type="checkbox"] {
 }
 
 li:hover {
-  background-color: #CCCCF5;
+  color: #4640DE;
+  background-color: #E9EBFD;
+}
+
+li:hover .side-bar-icons {
+  color: #4640DE;
 }
 
 .side-bar-icons {
