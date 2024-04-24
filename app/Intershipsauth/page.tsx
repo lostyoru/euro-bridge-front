@@ -13,7 +13,7 @@ function page() {
       <div className="w-4/5 px-10 ">
         
           <div className="flex flex-col ">
-            <h1 className="text-[28px] font-bold mt-10 mb-6 capitalize">
+            <h1 className="text-[28px] font-bold font-body mt-10 mb-6 capitalize">
               find interships
             </h1>
             <hr />
@@ -29,7 +29,7 @@ function page() {
               <FilterSection/>
             </div>
               <div className="flex-grow">
-              <p className="text-[26px] font-bold mb-10">All interships</p>
+              <p className="text-[26px] font-bold font-body mb-10">All interships</p>
               <div className=" grid grid-cols-1  gap-5  content-start justify-items-center ">
                 <IntershipCardAllauth
                   image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png"
