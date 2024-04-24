@@ -9,15 +9,15 @@ function page() {
     <div>
       <div className="flex flex-col justify-center items-center mt-20">
         <p className="text-[33px] leading-[4.5rem] mt-10 mb-8 font-bold w-1/3 ">
-          Find your{" "}
-          <span className="text-[#26A4FF]  static">
+          Find your {" "}
+          <span className="text-[#26A4FF] relative w-fit pb-3">
             dream companies
             <Image
               src="/Line.png"
               alt="logo"
               width={300}
               height={5}
-              className="translate-x-20 ml-20 absolute  left-30"
+              className="absolute left-0 right-0 bottom-0"
             />
           </span>
         </p>
@@ -29,7 +29,7 @@ function page() {
         <Search />
       </div>
       <div className=" px-24 mr-28 translate-x-14 h-[1000px] mt-10">
-        <h1 className="font-bold text-[30px]  mb-4">
+        <h1 className="font-bold text-[32px]  mb-4">
           Recommended Companies
         </h1>
         <p className="text-[#7C8493] text-[14px]">

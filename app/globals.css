@@ -68,4 +68,39 @@ input[type="checkbox"] {
   height: 20px;
 }
 
+.side-bar {
+  border-right: solid 2px #CCCCF5;
+}
+
+.active-li {
+  background-color: #CCCCF5;
+}
+
+.active-li {
+  color: #4640DE;
+  font-weight: 500;
+}
+
+.active-li::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 80%;
+  background-color: #4640DE;
+  top: 50%;
+  translate: 0 -50%;
+  left: -19px;
+}
+
+li:hover {
+  background-color: #CCCCF5;
+}
+
+.side-bar-icons {
+  color: #7C8493;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+}
+
 

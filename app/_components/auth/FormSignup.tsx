@@ -1,5 +1,5 @@
 import React from 'react'
-import { MouseEvent } from 'react'
+import AccountType from './AccounType'
 type FormSignupProps = {
     switcher: (e: any) => void;
     switchClass: string;
@@ -7,13 +7,7 @@ type FormSignupProps = {
 const FormSignup = (source:FormSignupProps) => {
   return (
     <form className={`sign-up-form w-full z-4 inset-4 ${source.switchClass} mt-40 xl:mt-32`}>
-                    
-        <div className="account-type flex flex-row justify-center items-center w-full bg-white">
-            <input className='hidden' type="radio" id="intership-seeker-1" name="account-type-sign-up" value="intership-seeker" />
-            <label className='cursor-pointer p-2 text-[#4640DE] font-semibold m-1 checkbox-label text-center' htmlFor="intership-seeker-1">Intership Seeker</label>
-            <input className='hidden' type="radio" id="company-1" name="account-type-sign-up" value="company" />
-            <label className='cursor-pointer p-2 text-[#4640DE] font-semibold checkbox-label' htmlFor="company-1">Company</label> 
-        </div>
+        <AccountType name="account-type-sign-up" intershipId='intership-seeker-1' companyId='company-1'/>
 
         <div className="input-group flex flex-col justify-start items-start mb-2 bg-white">
             <h3 className='text-[28px] font-bold text-center mb-12 w-full'>Get more opportunities</h3>
