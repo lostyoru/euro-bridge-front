@@ -27,7 +27,7 @@ function Footer() {
           </p>
           <button
             type="button"
-            className="px-4 py-3 text-[#FFFFFF]  bg-[#4640DE] lg:mr-14 text-xs font-bold w-24"
+            className="px-4 py-3 text-[#FFFFFF]  bg-primary lg:mr-14 text-xs font-bold w-24"
           >
             Sign Up
           </button>

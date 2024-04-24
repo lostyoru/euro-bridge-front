@@ -7,13 +7,15 @@ type Props = {
   image: string;
 };
 
+
+
 function IntershipCardAll(source: Props) {
   return (
     
     <div className="flex flex-row justify-between border-2  bg-white w-[1000px]">
       <div className=" flex flex-row justify-start gap-10 items-center ">
         
-        <Link href="/" className="ml-8">
+        <Link href="/Intership" className="ml-8">
           <Image
             src={source.image}
             alt="intership"
@@ -28,7 +30,7 @@ function IntershipCardAll(source: Props) {
           <div className="flex flex-row justify-between gap-2 ">
             <button
               type="button"
-              className="bg-white border-2 border-[#4640DE] rounded-full text-[#4640DE]  px-1.5 "
+              className="bg-white border-2 border-primary rounded-full text-primary  px-1.5 "
             >
               {" "}
               full time
@@ -51,10 +53,10 @@ function IntershipCardAll(source: Props) {
         </div>
       </div>
       <div className="mr-6 flex items-center  ">
-      <Link href="/">
+      <Link href="/Intership">
         <button
           type="button"
-          className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-[#4640DE]  "
+          className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-primary  "
         >
           Apply
         </button>

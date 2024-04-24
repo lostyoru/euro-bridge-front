@@ -13,6 +13,12 @@ module.exports = {
       fontFamily: {
         body: ["Clash Display"],
       },
+      colors: {
+        'primary': '#4640DE',
+        'bground':'#F8F8FD',
+        'p':'#515B6F',
+        'second':'#26A4FF'
+      },
     },
     screens: {
       'sm': '640px',

@@ -11,7 +11,7 @@ function Intershipshome() {
           Latest <span className="text-[#26A4FF]"> Internships open</span>
         </p>
         <div>
-          <Link href="/" className="text-[#4640DE] flex flex-row ">
+          <Link href="/Interships" className="text-[#4640DE] flex flex-row ">
             Show all Internships
             <Image
               src="/Icon.png"

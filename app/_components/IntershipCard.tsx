@@ -5,7 +5,6 @@ type Props = {
     post: string,
     location: string
 }
-
 function IntershipCard(source: Props) {
   return (
     <div className=" bg-white w-[500px] h-[130px] flex flex-row justify-start gap-10 items-center ">
@@ -24,7 +23,7 @@ function IntershipCard(source: Props) {
             <div className="flex flex-row justify-between gap-2 ">
               <button
                 type="button"
-                className="bg-white border-2 border-[#4640DE] rounded-full text-[#4640DE]  px-1.5 "
+                className="bg-white border-2 border-primary rounded-full text-primary  px-1.5 "
               >
                 {" "}
                 full time

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image"; // Import if using Next.js 10 or below
 
+
+
+
 const Navbar = () => {
   return (
     <nav className="shadow-md flexBetween gap-12 relative  py-1 max-container">
@@ -11,7 +14,8 @@ const Navbar = () => {
 
         <ul className=" h-full flex text-small ml-16  ">
           <Link
-            className=" text-[15px] regular-16 text-[#515B6F] flex justify-center cursor-pointer pb-1.5 transition-all hover:text-[#4640DE] ml-24 capitalize"
+            className=" text-[15px] regular-16 text-p
+             flex justify-center cursor-pointer pb-1.5 transition-all hover:text-primary ml-24 capitalize"
             href="/Interships"
           >
             find interships
@@ -21,7 +25,8 @@ const Navbar = () => {
       <div className="flexBetween mr-18">
         <ul className=" h-full  flex mr-16   ">
           <Link
-            className=" mr-24 text-[15px] regular-16 text-[#515B6F] flex justify-center cursor-pointer transition-all hover:text-[#4640DE] capitalize "
+            className=" mr-24 text-[15px] regular-16 text-p
+             flex justify-center cursor-pointer transition-all hover:text-primary capitalize "
             href="/Companies"
           >
             browse copmanies
@@ -30,13 +35,13 @@ const Navbar = () => {
         <div className="flex justify-around  font-semibold  ">
           <button
             type="button"
-            className=" border-r-2 p-4 text-[#4640DE] ml-10 capitalize"
+            className=" border-r-2 p-4 text-primary ml-10 capitalize"
           >
             login
           </button>
           <button
             type="button"
-            className=" p-4 text-[#FFFFFF]  bg-[#4640DE] mr-14 ml-8"
+            className=" p-4 text-[#FFFFFF]  bg-primary mr-14 ml-8"
           >
             Sign Up
           </button>
