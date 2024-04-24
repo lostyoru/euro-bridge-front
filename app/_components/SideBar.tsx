@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import { useState } from 'react';
@@ -11,6 +12,7 @@ import sideBarSvg from '../../public/sideBarSvg.svg';
 import logo from "../../public/eurobridg.svg";
 import avatar from '../../public/Avatar.png';
 import { SideBarElement } from '@/types/sideBarElement';
+import Link from 'next/link';
 const SideBar = () => {
 
     const [links, setLinks] = useState<SideBarElement[]>([
@@ -110,7 +112,8 @@ const SideBar = () => {
 
   return (
       <div className='side-bar text-[#7C8493] text-lg w-1/5 bg-[#F8F8FD] pb-52 overflow-hidden'>
-        <Image src={logo} alt='logo' className='w-56 mx-auto mt-5' />
+        <Link href="/"><Image src={logo} alt='logo' className='w-56 mx-auto mt-5' /></Link>
+        
         <ul className='side-bar-links pr-5 pl-5 pb-20 border-solid border-b-2 border-[#CCCCF5]'>
 
           {links.map((link, index) => (

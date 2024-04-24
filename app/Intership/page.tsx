@@ -2,9 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import IntershipCard1 from "../_components/IntershipCard1";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-
+import { FaRegCheckCircle } from "react-icons/fa";
 function Intership() {
   return (
     <div>
@@ -36,27 +34,26 @@ function Intership() {
                 Qualificaations
               </h1>
               <div >
-              <ul>
-                <li>
-                <FontAwesomeIcon
-              icon={faCheckCircle}
-              className=" text-lg mr-4"
-              width={30}
-              height={30}
-            />
-                  <p className="text-p mt-4">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
+              <ul className="mt-4">
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Strong communication and writing skills</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Strong communication and writing skills</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Proficiency in social media platforms and Microsoft Office suite</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Proficiency in social media platforms and Microsoft Office suite</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Proficiency in social media platforms and Microsoft Office suite</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Proficiency in social media platforms and Microsoft Office suite</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Proficiency in social media platforms and Microsoft Office suite</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Proficiency in social media platforms and Microsoft Office suite</p>
                 </li>
               
               </ul>
@@ -68,20 +65,25 @@ function Intership() {
               </h1>
               <div >
               <ul>
-                <li>
-                  <p className="text-p mt-4">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Currently enrolled in a Bachelor&apos;s or Master&apos;s degree program, preferably in Marketing, Business, or a related field</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Strong communication and writing skills</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Strong communication and writing skills</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Proficiency in social media platforms and Microsoft Office suite</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Proficiency in social media platforms and Microsoft Office suite</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Proficiency in social media platforms and Microsoft Office suite</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Proficiency in social media platforms and Microsoft Office suite</p>
                 </li>
-                <li>
-                  <p className="text-p mt-2">Proficiency in social media platforms and Microsoft Office suite</p>
+                <li className="flex flex-row items-center mt-2">
+                  <FaRegCheckCircle style={{ color: `#56CDAD`}}/>
+                  <p className="text-p px-2">Proficiency in social media platforms and Microsoft Office suite</p>
                 </li>
               
               </ul>

@@ -33,7 +33,7 @@ function IntershipCard1(source:Props) {
             </div>
           </div>
           <div className="mr-6 flex items-center  ">
-      <Link href="/Intership">
+      <Link href="/IntershipDes">
         <button
           type="button"
           className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-primary  "
