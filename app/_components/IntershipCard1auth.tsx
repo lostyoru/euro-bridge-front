@@ -1,25 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 type Props = {
   post: string;
   location: string;
   image: string;
+
 };
-function IntershipCard1auth(source: Props) {
+function IntershipCard1auth(source: Props,{setShowModel}:any) {
   return (
     <div className="border-2 bg-white  border-[#D6DDEB] p-8 m-10 flex flex-row justify-between">
       <div className="flex flex-row items-center justify-start gap-6">
         <div className="">
-          <Link href="/">
-            <Image
-              src={source.image}
-              alt="intership"
-              width={60}
-              height={60}
-              className="ml-4"
-            />
-          </Link>
+          <Image
+            src={source.image}
+            alt="intership"
+            width={60}
+            height={60}
+            className="ml-4"
+          />
         </div>
         <div className="flex flex-col">
           <h1 className="font-bold capitalize text-[18px]">{source.post}</h1>
@@ -31,6 +30,7 @@ function IntershipCard1auth(source: Props) {
           <button
             type="button"
             className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-primary  "
+            onClick={() =>{setShowModel(false); }}
           >
             Apply
           </button>

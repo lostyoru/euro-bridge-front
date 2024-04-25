@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 
 import SideBar from "../_components/SideBar";
 import Image from "next/image";
@@ -6,9 +7,12 @@ import Link from "next/link";
 import IntershipCard1 from "../_components/IntershipCard1";
 import { FaRegCheckCircle } from "react-icons/fa";
 import IntershipCard1auth from "../_components/IntershipCard1auth";
+import Model from "../_components/Model";
 
 function page() {
+  let [showModel,setShowModel]=useState(false);
   return (
+    <>
     <div className="flex flex-row">
       <SideBar />
       <div className="w-4/5">
@@ -19,10 +23,12 @@ function page() {
         <div className="p-6">
           <div className="bg-bground p-1  ">
             <IntershipCard1auth
-              post="social Media Assistant"
-              location="Dropbox .Paris.Full-Time"
-              image="/Dropbox.png"
+                post="social Media Assistant"
+                location="Dropbox .Paris.Full-Time"
+                image="/Dropbox.png"  
+                setShowModel={setShowModel}
             />
+         
           </div>
         </div>
 
@@ -188,6 +194,8 @@ function page() {
         </div>
       </div>
     </div>
+    <Model isVisible={showModel} />
+    </>
   );
 }
 
