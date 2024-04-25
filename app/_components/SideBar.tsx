@@ -23,7 +23,8 @@ const SideBar = () => {
               <TbMessage2 className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
             )
           },
-          active: true
+          active: true,
+          link: "http://localhost:3000/chat"
         },
         {
           name: 'My Applications',
@@ -32,7 +33,8 @@ const SideBar = () => {
               <RxFileText className='mx-3 side-bar-icons'  style={{ color: `${color}` }}/>
             )
           },
-          active: false
+          active: false,
+          link: "http://localhost:3000/myapp"
         },
         {
           name: 'Find Interships',
@@ -41,7 +43,8 @@ const SideBar = () => {
               <RiSearchLine className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
             )
           },
-          active: false
+          active: false,
+          link: "http://localhost:3000/Intershipsauth"
         },
         {
           name: 'Browse Companies',
@@ -50,7 +53,8 @@ const SideBar = () => {
               <TbBuildingSkyscraper className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
             )
           },
-          active: false
+          active: false,
+          link: "http://localhost:3000/Companiesauth"
         },
         {
           name: 'My Public Profile',
@@ -59,7 +63,8 @@ const SideBar = () => {
               <IoPersonOutline className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
             )
           },
-          active: false
+          active: false,
+          link: "http://localhost:3000/profile"
         }
       ])
     
@@ -70,7 +75,8 @@ const SideBar = () => {
             <MdOutlineSettings className="side-bar-icons ml-2 mr-3" style={{ color: `${color}` }} />
           )
         },
-        active: false
+        active: false,
+        link: "http://localhost:3000/profile/settings"
       })
     
       const handleClick = (index: number) => {
@@ -119,7 +125,7 @@ const SideBar = () => {
           {links.map((link, index) => (
             <li key={index} className={`flex flex-row justify-arround items-center my-3 px-1 py-3 relative ${link.active ? 'active-li' : ''}`} onClick={() => handleClick(index)}>
               {link.icon(link.active ? '#4640DE' : '#7C8493')}
-              <a href='#' className='side-bar-element'>{link.name}</a>
+              <Link href={link.link} className='side-bar-element'>{link.name}</Link>
             </li>
           ))}
 
@@ -139,7 +145,7 @@ const SideBar = () => {
           <ul className=''>
             <li className={`flex flex-row items-center mt-8 py-3 px-1 relative ${settings.active ? 'active-li' : ''}`} onClick={handleClickSettings}>
               {settings.icon(settings.active ? '#4640DE' : '#7C8493') }
-              <a href="#" className="settings-link">{settings.name}</a>
+              <Link href={settings.link} className="settings-link">{settings.name}</Link>
             </li>
           </ul>
         </div>
