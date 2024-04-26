@@ -75,7 +75,7 @@ function SideBarProvider({
         name: 'Settings',
         icon(color: string){ 
           return (
-            <MdOutlineSettings className="side-bar-icons ml-2 mr-3" style={{ color: `${color}` }} />
+            <MdOutlineSettings className="side-bar-icons mx-3 sm:ml-2 sm:mr-3" style={{ color: `${color}` }} />
           )
         },
         active: false,
@@ -119,6 +119,11 @@ function SideBarProvider({
         
         setLinks(newLinks)
         console.log("the state changed")
+      }
+
+      const handleSideBar = (newLinks: SideBarElement[]) => {
+        console.log("changing state");
+        setLinks(newLinks);
       }
   return (
     <SideBarContext.Provider value={{ links, settings, handleClick, handleClickSettings }}>

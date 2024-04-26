@@ -1,7 +1,7 @@
 
 import SideBar from '../_components/SideBar'
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,7 +14,25 @@ import {
 import Intershipshome from "../_components/Intershipshome";
 import Companie1 from "../_components/Companie1";
 import Companie1auth from '../_components/Companie1auth';
-function page() {
+import { SideBarContext } from '../_components/contexts/SideBar/SideBarContext';
+
+function Companie() {
+  const { links, settings, handleClick, handleClickSettings } = useContext(SideBarContext);
+  const newLinks = links.map((link, index) => {
+    if(index === 3){
+      return {
+        ...link,
+        active: true
+      }
+    }
+    else {
+      return {
+        ...link,
+        active: false
+      }
+    }
+  })
+  handleClick(3);
   return ( 
     <div>
     <div className="flex flex-row">
@@ -127,5 +145,5 @@ function page() {
   )
 }
 
-export default page
+export default Companie
 

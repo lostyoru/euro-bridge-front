@@ -5,11 +5,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
 import { TbBuildingSkyscraper } from "react-icons/tb";
 import { MdOutlineSettings } from "react-icons/md";
-import sideBarSvg from '../../public/sideBarSvg.svg';
-import logo from "../../public/eurobridg.svg";
-import avatar from '../../public/Avatar.png';
 import { SideBarElement } from '@/types/sideBarElement';
-import Link from 'next/link';
 export const SideBarContext = createContext({
   links: [
     {

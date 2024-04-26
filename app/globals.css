@@ -92,6 +92,19 @@ input[type="checkbox"] {
   left: -19px;
 }
 
+@media (max-width: 640px) {
+  .side-bar .active-li::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 80%;
+    background-color: #4640DE;
+    top: 50%;
+    translate: 0 -50%;
+    left: -6px;
+  }
+}
+
 .side-bar li:hover {
   color: #4640DE;
   background-color: #E9EBFD;
@@ -108,4 +121,7 @@ input[type="checkbox"] {
   font-weight: bold;
 }
 
+.selected-contact {
+  background-color: #E9EBFD;
+}
 
