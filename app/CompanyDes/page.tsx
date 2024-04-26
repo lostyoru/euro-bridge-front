@@ -1,3 +1,5 @@
+
+import SideBar from '../_components/SideBar'
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
@@ -11,10 +13,14 @@ import {
 
 import Intershipshome from "../_components/Intershipshome";
 import Companie1 from "../_components/Companie1";
-function Companie() {
-  return (
+import Companie1auth from '../_components/Companie1auth';
+function page() {
+  return ( 
     <div>
-      <div className="flex flex-row gap-6 items-center bg-bground p-24">
+    <div className="flex flex-row">
+      <SideBar />
+      <div className="w-4/5">
+      <div className="flex flex-row gap-6 py-20 items-center bg-bground px-10">
         <Image
           src="/Stripe.png"
                 alt="Company Logo"
@@ -45,7 +51,7 @@ function Companie() {
         </div>
         </div>
       </div>
-      <div className="p-24 flex flex-col gap-3  ">
+      <div className="p-10 flex flex-col gap-3  ">
         <h1 className="capitalize font-bold font-body text-[22px]">
           {" "}
           Company profile
@@ -113,10 +119,13 @@ function Companie() {
         </div>
       </div>
       <div className="">
-        <Companie1 />
+        <Companie1auth />
+      </div>
       </div>
     </div>
-  );
+    </div>
+  )
 }
 
-export default Companie;
+export default page
+
