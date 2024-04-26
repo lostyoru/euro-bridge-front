@@ -5,9 +5,9 @@ type Props = {
   post: string;
   location: string;
   image: string;
-
+  // setShowModel: ;
 };
-function IntershipCard1auth(source: Props,{setShowModel}:any) {
+function IntershipCard1auth(source: Props) {
   return (
     <div className="border-2 bg-white  border-[#D6DDEB] p-8 m-10 flex flex-row justify-between">
       <div className="flex flex-row items-center justify-start gap-6">
@@ -30,7 +30,9 @@ function IntershipCard1auth(source: Props,{setShowModel}:any) {
           <button
             type="button"
             className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-primary  "
-            onClick={() =>{setShowModel(false); }}
+            onClick={() => {
+              source.setShowModel = false;
+            }}
           >
             Apply
           </button>
