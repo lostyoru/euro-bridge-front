@@ -5,6 +5,7 @@ import { RiSearchLine } from "react-icons/ri";
 import SideBar from '../_components/SideBar';
 import { useState } from 'react';
 import { importedContacts } from './profile';
+import Avatar from '../../public/profiles/Avatar.png';
 const Messages = () => {
 
 
@@ -38,7 +39,7 @@ const Messages = () => {
                             {contacts.map((contact, index) => (
                                 <div key={index} className={`contact ${contact.selected ? 'selected-contact' : ''} flex flex-row justify-start lg:justify-center items-center border-b border-[#CCCCF5] w-full py-2 px-5 lg:p-2 cursor-pointer`} onClick={() => handleClick(index)}>
                                     <div className="contact-profile mr-1 lg:mr-3 lg:block">
-                                        <Image src={contact.profile} alt={contact.name} />
+                                        <Image src={contact.profile} alt={contact.name} width={50} />
                                     </div>
                                     <div className="contact-details w-full md:w-10/12 lg:w-9/12 overflow-hidden">
                                         <div className="name-time flex flex-row justify-between items-center">
@@ -54,7 +55,7 @@ const Messages = () => {
 
                     <div className="messenger hidden sm:block sm:w-7/12 md:w-2/3 py-10 ">
                         <div className="recipient flex flex-row items-center pb-5 px-5">
-                          <Image src={contacts[0].profile} alt={contacts[0].name} width={70} />
+                          <Image src={Avatar} alt={contacts[0].name} className='rounded-full' width={70} />
                           <div className="recipient-details ml-3">
                             <p className='font-bold text-xl'>Jan Mayer</p>
                             <p className='text-lg'>Recruiter at Nomad</p>
