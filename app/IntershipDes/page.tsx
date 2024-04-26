@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import SideBar from "../_components/SideBar";
 import Image from "next/image";
@@ -11,9 +11,25 @@ import Model from "../_components/Model";
 
 function page() {
   let [showModel, setShowModel] = useState(false);
+  const handleCloseModel = () => {
+    setShowModel(false);
+  };
+  useEffect(() => {
+    // Disable scrolling when the modal is open
+    if (showModel) {
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scrolling when the modal is closed
+      document.body.style.overflow = "auto";
+    }
+
+    // Clean up function to remove the style when component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showModel]);
   return (
     <>
-
       <div className="flex flex-row">
         <SideBar />
         <div className="w-4/5">
@@ -27,11 +43,10 @@ function page() {
                 post="social Media Assistant"
                 location="Dropbox .Paris.Full-Time"
                 image="/Dropbox.png"
-                setShowModel={setShowModel}
+                setShowModel={setShowModel} // Pass setShowModel properly
               />
             </div>
           </div>
-        
 
           <div className="flex flex-row gap-8 p-10">
             <div className=" lg:w-[1100px]  ">
@@ -201,8 +216,13 @@ function page() {
           </div>
         </div>
       </div>
-      
-      <Model isVisible={true} image="/Dropbox.png" post="social media assistant" location ="nomad . hambourg .germany" />
+
+      <Model
+        isVisible={showModel}
+        image="/Dropbox.png"
+        post="social media assistant"
+        location="nomad . hambourg .germany" onClose={handleCloseModel} 
+      />
     </>
   );
 }
