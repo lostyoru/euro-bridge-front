@@ -14,25 +14,9 @@ import {
 import Intershipshome from "../_components/Intershipshome";
 import Companie1 from "../_components/Companie1";
 import Companie1auth from '../_components/Companie1auth';
-import { SideBarContext } from '../_components/contexts/SideBar/SideBarContext';
 
 function Companie() {
-  const { links, settings, handleClick, handleClickSettings } = useContext(SideBarContext);
-  const newLinks = links.map((link, index) => {
-    if(index === 3){
-      return {
-        ...link,
-        active: true
-      }
-    }
-    else {
-      return {
-        ...link,
-        active: false
-      }
-    }
-  })
-  handleClick(3);
+
   return ( 
     <div>
     <div className="flex flex-row">

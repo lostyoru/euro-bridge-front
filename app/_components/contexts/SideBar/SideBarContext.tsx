@@ -70,5 +70,6 @@ export const SideBarContext = createContext({
     link: "http://localhost:3000/profile/settings"
   },
   handleClick: (index: number):void => {},
-  handleClickSettings: () => {}
+  handleClickSettings: () => {},
+  handleSideBar: (newLinks: SideBarElement[], newSetting: SideBarElement): void => {}
 });

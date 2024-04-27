@@ -125,3 +125,12 @@ input[type="checkbox"] {
   background-color: #E9EBFD;
 }
 
+.hide-y-scroll {
+  overflow-y: scroll; /* Enable scrolling */
+  -webkit-scrollbar: none; /* Hide scrollbar for Chrome, Safari, etc. */
+  -ms-overflow-style: none; /* Hide scrollbar for Edge */
+}
+
+.hide-y-scroll::-webkit-scrollbar { /* Optional for a cleaner look */
+  display: none;
+}

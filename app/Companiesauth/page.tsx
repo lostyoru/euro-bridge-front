@@ -1,11 +1,34 @@
-import React from "react";
+"use client";
+/* eslint-disable */
+import React, { useEffect } from "react";
 import SideBar from "../_components/SideBar";
 import Search from "../_components/Search";
 import CompanyCard from "../_components/CompanyCard";
 import CompanyCardAuth from "../_components/CompanyCardAuth";
+import { SideBarContext } from "../_components/contexts/SideBar/SideBarContext";
+import { useContext } from "react";
 
-function page() {
+function Companieauth() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);
+  const { links, settings, handleClick, handleClickSettings, handleSideBar } = useContext(SideBarContext);
+  useEffect(() => {
+    const newLinks = links.map((link, index) => {
+      if (index === 3) {
+        return {
+          ...link,
+          active: true
+        }
+      } else {
+        return {
+          ...link,
+          active: false
+        }
+      }
+    })
+    handleSideBar(newLinks, {...settings, active: false});
+  
+  }, []); 
+
   return (
     <div className="flex flex-row">
       <SideBar />
@@ -41,4 +64,4 @@ function page() {
   );
 }
 
-export default page;
+export default Companieauth;

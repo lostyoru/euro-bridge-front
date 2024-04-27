@@ -1,11 +1,31 @@
+"use client";
+/* eslint-disable */
 import React from "react";
 import SideBar from "../_components/SideBar";
-
 import FilterSection from "../_components/FilterSection";
 import Search from "../_components/Search";
 import Image from "next/image";
 import IntershipCardAllauth from "../_components/IntershipCardAllauth";
-function page() {
+import { SideBarContext } from "../_components/contexts/SideBar/SideBarContext";
+import { useContext, useEffect } from "react";
+function Intershipsauth() {
+  const { links, settings, handleClick, handleClickSettings, handleSideBar } = useContext(SideBarContext);
+  useEffect(() => {
+    const newLinks = links.map((link, index) => {
+      if (index === 2) {
+        return {
+          ...link,
+          active: true
+        }
+      } else {
+        return {
+          ...link,
+          active: false
+        }
+      }
+    })
+    handleSideBar(newLinks, {...settings, active: false});
+  }, []);
   return (
     <div className="flex flex-row  ">
       <SideBar />
@@ -72,4 +92,4 @@ function page() {
   );
 }
 
-export default page;
+export default Intershipsauth;

@@ -26,7 +26,7 @@ function SideBarProvider({
               <TbMessage2 className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
             )
           },
-          active: true,
+          active: false,
           link: "http://localhost:3000/chat"
         },
         {
@@ -121,12 +121,12 @@ function SideBarProvider({
         console.log("the state changed")
       }
 
-      const handleSideBar = (newLinks: SideBarElement[]) => {
-        console.log("changing state");
+      const handleSideBar = (newLinks: SideBarElement[], newSetting: SideBarElement) => {
         setLinks(newLinks);
+        setSettings(newSetting);
       }
   return (
-    <SideBarContext.Provider value={{ links, settings, handleClick, handleClickSettings }}>
+    <SideBarContext.Provider value={{ links, settings, handleClick, handleClickSettings, handleSideBar }}>
     {children}
     </SideBarContext.Provider>
   )
