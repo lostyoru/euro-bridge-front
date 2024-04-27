@@ -17,7 +17,7 @@ function Model(source: Props) {
         <div className="bg-white p-10">
           <div className="flex justify-end">
           <button
-        className=" font-body absolute top-0 mt-4 mr-2 text-xl z-10"
+        className=" font-body  mt-4 mr-2 text-xl z-10"
         onClick={source.onClose}
       >
         x
@@ -32,7 +32,7 @@ function Model(source: Props) {
               className="mr-5"
             />
             <div className="flex flex-col">
-              <h1 className="font-bold capitalize text-[18px]">
+              <h1 className="font-bold capitalize text-[18px] font-body">
                 {source.post}
               </h1>
               <p className="text-[#515B6F]">{source.location}</p>
@@ -128,7 +128,6 @@ function Model(source: Props) {
             <textarea
               id="exp"
               className="p-2 border h-20 resize-none"
-              value=""
               rows={5}
               cols={40}
               placeholder="Add a cover letter or anything else you want to share"
