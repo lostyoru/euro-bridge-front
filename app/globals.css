@@ -129,6 +129,7 @@ input[type="checkbox"] {
   overflow-y: scroll; /* Enable scrolling */
   -webkit-scrollbar: none; /* Hide scrollbar for Chrome, Safari, etc. */
   -ms-overflow-style: none; /* Hide scrollbar for Edge */
+  scroll-behavior: smooth;
 }
 
 .hide-y-scroll::-webkit-scrollbar { /* Optional for a cleaner look */

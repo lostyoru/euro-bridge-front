@@ -10,7 +10,7 @@ const SideBar = () => {
     const { links, settings, handleClick, handleClickSettings } = useContext(SideBarContext);
 
   return (
-      <div className='side-bar text-[#7C8493] text-lg w-20 sm:w-1/5 bg-[#F8F8FD] pb-52 overflow-hidden'>
+      <div className='side-bar text-[#7C8493] text-lg w-20 sm:w-1/5 bg-[#F8F8FD] pb-52 overflow-hidden '>
         <Link href="/"><Image src={logo} alt='logo' className='hidden sm:block w-56 mx-auto mt-5' /></Link>
         
         <ul className='side-bar-links px-2 pb-10 md:pr-5 md:pl-5 md:pb-20 border-solid border-b-2 border-[#CCCCF5]'>
@@ -39,7 +39,7 @@ const SideBar = () => {
         <div className="settings mt-10 sm:p-5 relative">
           <p className='font-semibold hidden sm:block sm:text-sm lg:text-base relative z-10'>Settings</p>
           <Image src={sideBarSvg} alt='sideBarSvg' className='mt-5 absolute -right-7 -top-52' />
-          <ul className=''>
+          <ul>
             <li className={`mt-8 py-3 px-1 relative ${settings.active ? 'active-li' : ''}`} onClick={handleClickSettings}>
               {/* {settings.icon(settings.active ? '#4640DE' : '#7C8493') } */}
               <Link href={settings.link} className="settings-link flex flex-row justify-around sm:justify-start items-center sm:text-xs md:text-sm lg:text-lg w-full h-full">

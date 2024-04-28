@@ -15,6 +15,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Joe Bartmann",
         profile: Avatar1,
+        work: "Software Engineer at nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -23,6 +24,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Ally Wales",
         profile: Avatar2,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -31,6 +33,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "James Gardner",
         profile: Avatar3,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -39,6 +42,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Allison Geidt",
         profile: Avatar4,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -47,6 +51,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Ruben Culhane",
         profile: Avatar5,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -55,6 +60,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Ruben Culhane",
         profile: Avatar6,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -63,6 +69,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Lydia Diaz",
         profile: Avatar7,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -71,6 +78,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "James Dokidis",
         profile: Avatar8,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -79,6 +87,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -87,6 +96,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -95,6 +105,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -103,6 +114,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -111,6 +123,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -119,6 +132,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -127,6 +141,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
@@ -135,6 +150,7 @@ export const importedContacts: chatProfile[] = [
     {
         name: "Angelina Swann",
         profile: Avatar9,
+        work: "Recruiter at Nomad",
         lastMessage: "We want to invite you for a quick interview",
         lastMessageTime: "3:40 PM",
         selected: false,
