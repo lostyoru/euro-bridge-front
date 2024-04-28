@@ -12,7 +12,7 @@ import { useContext, useEffect } from 'react';
 import { SideBarContext } from '../_components/contexts/SideBar/SideBarContext';
 import Contacts from '../_components/Contacts';
 import ContactSearch from '../_components/ContactSearch';
-import ContactChat from '../_components/ContactChata';
+import ContactChat from '../_components/ContactChat';
 import { chatProfile } from '@/types/chatProfile';
 const Messages = () => {
 

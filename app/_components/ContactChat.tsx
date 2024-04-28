@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react';
+import React, { use, useEffect } from 'react';
 import { chatProfile } from '@/types/chatProfile';
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
@@ -7,6 +7,7 @@ import { VscSend } from "react-icons/vsc";
 import { useState } from 'react';
 import { PiMessengerLogoBold } from "react-icons/pi";
 import { useRef } from 'react';
+import { useScrollChat } from '@/hooks/useScrollChat';
 type ContactChatProp = {
     contact: chatProfile;
     selfPfp: StaticImageData;
@@ -17,14 +18,7 @@ const ContactChat = (source: ContactChatProp) => {
     const { contact, selfPfp, selectedContact } = source;
     const [message, setMessage] = useState<string>('');
     const chat = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        if (chat.current && contact.messages.length > 0) {
-          chat.current.scrollTop = chat.current.scrollHeight;
-        }
-        if(chat.current && contact.messages.length == 0){
-            chat.current.scrollTop = 0;
-        }
-      }, [contact.messages, selectedContact]);
+    useScrollChat(chat, contact, selectedContact);
   return (
     <>
     {contact.name !== '' ? (
@@ -50,7 +44,6 @@ const ContactChat = (source: ContactChatProp) => {
 
         <ul className="messages p-5 w-full flex flex-col h-full relative mb-5">
             {contact.messages.map((message, index) => (
-                <>
                 <li key={index} className={`flex  ${message.user == 'Joe' ? 'flex-row self-start ' : 'flex-row-reverse self-end' } items-start  w-10/12 my-5`}>
                     <div className={`message-pfp ${message.user == 'Joe' ? 'mr-2' : 'ml-2'} w-16 flex flex-row justify-center items-center`}>
                         {contact.profile && <Image src={message.user == 'Joe' ? contact.profile : selfPfp} alt="pfp" width={40}/>}
@@ -64,7 +57,6 @@ const ContactChat = (source: ContactChatProp) => {
                         </div>
                     </div>
                 </li>
-                </>
             ))}
             </ul>
             </div>
