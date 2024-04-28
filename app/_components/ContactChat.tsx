@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { chatProfile } from '@/types/chatProfile';
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { PiMessengerLogoBold } from "react-icons/pi";
 import { useRef } from 'react';
 import { useScrollChat } from '@/hooks/useScrollChat';
+import { Message } from '@/types/message';
 type ContactChatProp = {
     contact: chatProfile;
     selfPfp: StaticImageData;
@@ -17,8 +18,25 @@ type ContactChatProp = {
 const ContactChat = (source: ContactChatProp) => {
     const { contact, selfPfp, selectedContact } = source;
     const [message, setMessage] = useState<string>('');
+    const [messages, setMessages] = useState<Message[]>(contact.messages);
     const chat = useRef<HTMLDivElement>(null);
     useScrollChat(chat, contact, selectedContact);
+    const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (message === '') return;
+        const newMessage = {
+            user: 'John',
+            message: message,
+            timestamp: `${new Date().toLocaleTimeString().slice(0, -3)}`,
+        }
+        const newMessages: Message[] = [...contact.messages, newMessage];
+        contact.messages = newMessages;
+        setMessages(newMessages);
+        setMessage('');
+    }
+    useEffect(() => {
+        setMessages(contact.messages);
+    }, [messages, contact.messages]);
   return (
     <>
     {contact.name !== '' ? (
@@ -60,9 +78,9 @@ const ContactChat = (source: ContactChatProp) => {
             ))}
             </ul>
             </div>
-            <form className='send-message absolute bottom-0 w-full flex flex-row justify-center items-center p-5'>
+            <form className='send-message absolute bottom-0 w-full flex flex-row justify-center items-center p-5' onSubmit={(e) => sendMessage(e)} autoComplete='false'>
                 <div className="send-msg-div w-full relative flex flex-row justify-center items-center border border-solid border-[#CCCCF5] h-14">
-                    <input type="text" name="message" id="message" className='w-full h-full p-3 outline-none text-lg' placeholder='Type a message...' value={message} onChange={(e) => setMessage(e.target.value)}/>
+                    <input type="text" name="message" id="message" className='w-full h-full p-3 outline-none text-lg' placeholder='Type a message...' value={message} onChange={(e) => setMessage(e.target.value)} autoComplete='false' />
                     <div className="icon-msg absolute right-2 bg-[#4640DE] p-2 w-20 flex flex-row justify-center items-center h-5/6 cursor-pointer">
                         <VscSend style={{'color': 'white'}}/>
                     </div>

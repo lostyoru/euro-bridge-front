@@ -1,12 +1,9 @@
 "use client";
 /* eslint-disable */
 import React from 'react';
-import Image from 'next/image';
 import SideBar from '../_components/SideBar';
 import { useState } from 'react';
 import { importedContacts } from './profile';
-import Avatar from '../../public/profiles/Avatar.png';
-import { VscSend } from "react-icons/vsc";
 import selfPfp from '../../public/Avatar.png';
 import { useContext, useEffect } from 'react';
 import { SideBarContext } from '../_components/contexts/SideBar/SideBarContext';
@@ -15,11 +12,10 @@ import ContactSearch from '../_components/ContactSearch';
 import ContactChat from '../_components/ContactChat';
 import { chatProfile } from '@/types/chatProfile';
 const Messages = () => {
-
+    const chatWidth = 'calc(100% - 73px)';
     const [contacts, setContacts] = useState(importedContacts);
     const allContacts = importedContacts;
     const { links, settings, handleClick: handleSide, handleClickSettings, handleSideBar } = useContext(SideBarContext);
-
      const nonSelectedContact = {
         name: '',
         messages: [],
@@ -28,8 +24,8 @@ const Messages = () => {
         lastMessage: '',
         lastMessageTime: '',
      }
-     
      const [selectedContact, setSelectedContact] = useState<chatProfile>(nonSelectedContact);
+
      const handleClick = (index: number) => {
         const newContacts = contacts.map((contact, i) => {
             if (i === index) {
@@ -94,7 +90,7 @@ const Messages = () => {
     return (
         <div className='flex flex-row w-full'>
             <SideBar />
-            <div className="chat w-fit sm:w-4/5 h-[650px] lg:h-[905px]">
+            <div className="chat sm:w-4/5 h-[650px] lg:h-[905px]" style={{ 'width': chatWidth}}>
                 <h3 className='chat-title font-bold text-3xl capitalize px-2 lg:px-10 py-10 border-b border-solid border-[#CCCCF5] cursor-pointer' onClick={() => setSelectedContact(nonSelectedContact)}>messages</h3>
                 <div className="chat flex flex-row h-full relative">
                     <div className="contacts flex flex-col justify-start sm:justify-center w-full sm:w-5/12 md:w-1/3 border-r border-solid border-[#CCCCF5] py-10 px-2 lg:p-10 overflow-hidden h-full">
