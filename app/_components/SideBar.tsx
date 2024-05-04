@@ -64,7 +64,7 @@ const SideBar = () => {
             )
           },
           active: false,
-          link: "http://localhost:3000/profile"
+          link: "http://localhost:3000/MyProfile"
         }
       ])
     

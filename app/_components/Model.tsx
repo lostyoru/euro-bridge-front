@@ -8,7 +8,12 @@ type Props = {
   location: string;
   onClose: () => void;
 };
-
+const handleResumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const selectedResume = event.target.files && event.target.files[0];
+  if (selectedResume) {
+    // Handle resume upload
+  }
+};
 function Model(source: Props) {
   if (!source.isVisible) return null;
   return (
@@ -135,6 +140,12 @@ function Model(source: Props) {
           </div>
           <div className="mt-10 mb-6 flex flex-row justify-between">
             <h1 className="font-semibold">Attach your resume</h1>
+            <input
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={handleResumeChange}
+          />
+          <hr />
           </div>
           <hr />
           <div className="flex justify-center mt-10">
