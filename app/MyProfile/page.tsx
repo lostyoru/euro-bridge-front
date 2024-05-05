@@ -55,26 +55,28 @@ const Page = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="flex flex-row px-5 py-6 gap-10 justify-between items-center">
-                  <div className="  overflow-visible  ">
-                  <img
-                        src="/AvatarPro.png"
-                        alt="Company Logo"
-                        width={130}
-                        height={80}
-                        className="mr-4 flex self-start"
-                      />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <h1 className="font-bold text-[18px] font-body"> mohamed tahar</h1>
+                <div className="flex flex-row px-5 py-6 gap-10 justify-around items-center">
+                  <div className="  overflow-visible flex flex-row items-center relative z-10 ">
+                    <img
+                      src="/AvatarPro.png"
+                      alt="Company Logo"
+                      width={130}
+                      height={80}
+                      className="mr-4 -mt-16"
+                    />
+                    <div className="flex flex-col gap-1 self-start">
+                    <h1 className="font-bold text-[18px] font-body">
+                      {" "}
+                      mohamed tahar
+                    </h1>
                     <p className="text-p ">front end developer at eurobridg</p>
                     <div className="flex flex-row text-p gap-2">
                       <IoLocationOutline />
                       <p>bejaia amizour</p>
                     </div>
-
-                    
                   </div>
+                  </div>
+
                   <div className="text-primary p-2 border-primary border-2 ">
                     <Link href="/Setings">
                       <button type="button">Edit profile</button>
@@ -82,9 +84,9 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[250px]">
-                <div className="flex flex-row">
-                  <h1 className="font-semibold text-[20px] capitalize mr-4">
+              <div className="w-[250px] p-4 border-2">
+                <div className="flex flex-row justify-between items-center">
+                  <h1 className="font-semibold text-[20px] capitalize ">
                     {" "}
                     additional Details
                   </h1>
@@ -172,8 +174,8 @@ const Page = () => {
                   />
                 </div>
               </div>
-              <div className="w-[250px] mt-7">
-                <div className="flex flex-row">
+              <div className="w-[250px] border-2 mt-1 p-4">
+                <div className="flex flex-row justify-between items-center ">
                   <h1 className="font-semibold text-[20px] capitalize mr-4">
                     {" "}
                     social links
@@ -200,7 +202,7 @@ const Page = () => {
                   <FaInstagram />
                   <div className="flex flex-col text-[14px] ">
                     <h1 className="text-p capitalize">instgram</h1>
-                    <p>instagram.com/jakegyll</p>
+                    <p className="text-primary">instagram.com/jakegyll</p>
                   </div>
                 </div>
                 <div className="flex flex-row gap-4  items-center mb-4">
@@ -214,7 +216,7 @@ const Page = () => {
                   <FaTwitter />
                   <div className="flex flex-col text-[14px] ">
                     <h1 className="text-p">twiter</h1>
-                    <p>twitter.com/jakegyll</p>
+                    <p className="text-primary">twitter.com/jakegyll</p>
                   </div>
                 </div>
                 <div className="flex flex-row gap-4 items-center ">
@@ -228,7 +230,7 @@ const Page = () => {
                   <SiWebauthn />
                   <div className="flex flex-col text-[14px] ">
                     <h1 className="text-p">website</h1>
-                    <p> mouh.com</p>
+                    <p className="text-primary"> mouh.com</p>
                   </div>
                 </div>
               </div>
