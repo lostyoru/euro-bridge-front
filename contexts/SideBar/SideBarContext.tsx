@@ -1,3 +1,4 @@
+"use client"
 import React, { createContext, useState } from 'react';
 import { TbMessage2 } from "react-icons/tb";
 import { RxFileText } from "react-icons/rx";

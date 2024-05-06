@@ -4,11 +4,12 @@ import React from "react";
 import SideBar from "../_components/SideBar";
 import FilterSection from "../_components/FilterSection";
 import Search from "../_components/Search";
-import Image from "next/image";
 import IntershipCardAllauth from "../_components/IntershipCardAllauth";
-import { SideBarContext } from "../_components/contexts/SideBar/SideBarContext";
+import { SideBarContext } from "@/contexts/SideBar/SideBarContext";
 import { useContext, useEffect } from "react";
+import AuthContext from "@/contexts/auth/AuthProvider";
 function Intershipsauth() {
+  const { auth }: any = useContext(AuthContext);
   const { links, settings, handleClick, handleClickSettings, handleSideBar } = useContext(SideBarContext);
   useEffect(() => {
     const newLinks = links.map((link, index) => {
@@ -28,7 +29,7 @@ function Intershipsauth() {
   }, []);
   return (
     <div className="flex flex-row  ">
-      <SideBar />
+      <SideBar  />
 
       <div className="w-4/5 px-10 ">
         

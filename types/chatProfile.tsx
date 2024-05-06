@@ -1,11 +1,17 @@
 import { StaticImageData } from "next/image";
 import { Message } from "./message";
 export type chatProfile = {
-    name: string,
-    profile?: StaticImageData,
-    work: string,
-    lastMessage: string
+    id: number,
+    lastMessage: string,
     lastMessageTime: string,
-    selected: boolean,
+    contact: {
+        id: number,
+        name: string,
+        email: string,
+        work: string,
+        image: string,
+        coverImage: string,
+    },
     messages: Message[],
+    selected?: boolean,
 }

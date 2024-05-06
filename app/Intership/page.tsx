@@ -1,9 +1,10 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import IntershipCard1 from "../_components/IntershipCard1";
 import { FaRegCheckCircle } from "react-icons/fa";
-import { SideBarContext } from "../_components/contexts/SideBar/SideBarContext";
+import { SideBarContext } from "@/contexts/SideBar/SideBarContext";
 import { useContext } from "react";
 function Intership() {
   const { links, settings, handleClick, handleClickSettings } = useContext(SideBarContext);

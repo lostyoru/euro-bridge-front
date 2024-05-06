@@ -5,11 +5,12 @@ import SideBar from "../_components/SideBar";
 import Search from "../_components/Search";
 import CompanyCard from "../_components/CompanyCard";
 import CompanyCardAuth from "../_components/CompanyCardAuth";
-import { SideBarContext } from "../_components/contexts/SideBar/SideBarContext";
+import { SideBarContext } from "@/contexts/SideBar/SideBarContext";
 import { useContext } from "react";
-
+import AuthContext from "@/contexts/auth/AuthProvider";
 function Companieauth() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);
+  const { auth }: any = useContext(AuthContext);
   const { links, settings, handleClick, handleClickSettings, handleSideBar } = useContext(SideBarContext);
   useEffect(() => {
     const newLinks = links.map((link, index) => {
