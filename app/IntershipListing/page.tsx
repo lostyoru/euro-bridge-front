@@ -221,16 +221,16 @@ function page() {
                 <div className=" flex flex-row gap-2">
                   <div className=" flex flex-col w-2/5  gap-3 ">
                     <div>
-                    <p className="text-p capitalize text-[18px] "> full name</p>
-                    <p className="font-semibold capitalize"> mohamed tahar</p>
+                    <p className="text-p capitalize text-[18px]  "> full name</p>
+                    <p className="font-semibold capitalize text-[#25324B]"> mohamed tahar</p>
                     </div>
                     <div>
                     <p className="text-p capitalize text-[18px] "> date of birth</p>
-                    <p className="font-semibold capitalize"> june 04 2003 </p>
+                    <p className="font-semibold capitalize text-[#25324B]"> june 04 2003 </p>
                     </div>
                     <div>
                     <p className="text-p capitalize text-[18px] "> address</p>
-                    <p className="font-semibold capitalize"> cite mahmoud zebsa oued zenati guelma</p>
+                    <p className="font-semibold capitalize text-[#25324B]"> cite mahmoud zebsa oued zenati guelma</p>
                     </div>
                     <div>
 
@@ -241,11 +241,11 @@ function page() {
                   <div className=" flex flex-col flex-grow  gap-3">
                   <div>
                     <p className="text-p capitalize text-[18px] "> gender</p>
-                    <p className="font-semibold capitalize"> male</p>
+                    <p className="font-semibold capitalize text-[#25324B]"> male</p>
                     </div>
                     <div>
                     <p className="text-p capitalize text-[18px] "> language</p>
-                    <p className="font-semibold capitalize"> arabic, french,english</p>
+                    <p className="font-semibold capitalize text-[#25324B]"> arabic, french,english</p>
                     </div>
                   </div>
                 </div>
@@ -257,12 +257,12 @@ function page() {
                   profissional info
                 </h1>
                 <p className="text-p capitalize text-[18px] "> about me</p>
-                <p className="font-semibold text-[16px]">
+                <p className="font-semibold text-[16px] text-[#25324B]">
                 I’m a product designer + filmmaker currently working remotely at Twitter from beautiful Manchester, United Kingdom. I’m passionate about designing digital products that have a positive impact on the world.{""} <br />
                 For 10 years, I’ve specialised in interface, experience & interaction design as well as working in user research and product strategy for product agencies, big tech companies & start-ups.
                 </p>
                 <p className="text-p text-[18px] capitalize"> aditional information</p>
-                <p className="font-semibold text-[16px]">
+                <p className="font-semibold text-[16px] text-[#25324B]">
                 I’m a product designer + filmmaker currently working remotely at Twitter from beautiful Manchester, United Kingdom. I’m passionate about designing digital products that have a positive impact on the world.{""} <br />
                 For 10 years, I’ve specialised in interface, experience & interaction design as well as working in user research and product strategy for product agencies, big tech companies & start-ups.
                 </p>
