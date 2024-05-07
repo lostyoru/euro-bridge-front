@@ -55,7 +55,7 @@ function page() {
               <div className="bg-bground p-2 flex flex-col gap-1 my-4">
                 <p className="text-p capitalize"> applied interships</p>
                 <hr />
-                <h1 className="font-semibold capitalize  text-[19px]">
+                <h1 className="font-semibold capitalize  text-[16px] text-[#25324B]">
                   product development
                 </h1>
                 <p className="text-p capitalize text-[14px]">
