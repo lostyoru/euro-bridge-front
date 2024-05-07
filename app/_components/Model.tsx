@@ -19,16 +19,21 @@ function Model(source: Props) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center overflow-y-auto">
       <div className="w-[650px] flex flex-col">
-        <div className="bg-white p-10">
-          <div className="flex justify-end">
-          <button
-        className=" font-body  mt-4 mr-2 text-xl z-10"
+        <div className="bg-white p-10 relative ">
+        <button
+        className=" font-body   absolute top-4 right-1 text-xl  z-10"
         onClick={source.onClose}
       >
-        x
+         <Image
+              src="/Xi.png"
+              alt="intership"
+              width={30}
+              height={50}
+              className="mr-5"
+            />
       </button>
-          </div>
-          <div className="flex flex-row gap-4 mb-10">
+         
+          <div className="flex flex-row gap-4 mb-10 mt-10">
             <Image
               src={source.image}
               alt="intership"

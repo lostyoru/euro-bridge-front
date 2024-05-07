@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
+import { MdOutlineMail } from "react-icons/md";
 import SideBar from "../_components/SideBar";
+
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -96,8 +98,8 @@ function page() {
           />
         </div>
         <hr />
-        <div className="p-8">
-            <div className="flex flex-row justify-between items-center ">
+        <div className="p-8 mb-4">
+          <div className="flex flex-row justify-between items-center mb-4">
             <h1 className="font-bold  font-body text-[22px]">Contact</h1>
             <button type="button" onClick={handleEditClick}>
               <img
@@ -107,65 +109,81 @@ function page() {
                 height={80}
               />
             </button>
-            </div>
-       
-          <div className="flex flex-row justify-between mb-4 ">
-          
-            <div className="flex flex-col">
-              <div className="flex flex-row gap-4">
-                <div className="border-[1.5px] border-primary p-1.5 text-primary">
-                  <Link
-                    href="https://www.instagram.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FontAwesomeIcon
-                      icon={faTwitter}
-                      className="text-primary text-lg mr-4"
-                      width={30}
-                      height={30}
-                    />
-                    twiter.com/dropbox
-                  </Link>
-                </div>
-                <div className="border-[1.5px] border-primary p-1.5 text-primary">
-                  <Link
-                    href="https://www.facebook.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FontAwesomeIcon
-                      icon={faFacebook}
-                      className="text-primary text-lg mr-4"
-                      width={30}
-                      height={30}
-                    />
-                    facebook.com/dropbox
-                  </Link>
-                </div>
-                
+          </div>
+
+          {/* <div className="flex flex-row justify-between mb-4 "> */}
+
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-row gap-2">
+              <div className="border-[1.5px] border-primary p-1.5 text-primary">
+                <Link
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={faTwitter}
+                    className="text-primary text-lg mr-2"
+                    width={30}
+                    height={30}
+                  />
+                  twiter.com/dropbox
+                </Link>
               </div>
-              <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]">
-                  <Link
-                    href="https://www.facebook.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FontAwesomeIcon
-                      icon={faLinkedin}
-                      className="text-primary text-lg mr-4"
-                      width={30}
-                      height={30}
-                    />
-                    linkedin.com/dropbox
-                  </Link>
-                </div>
+              <div className="border-[1.5px] border-primary p-1.5 text-primary">
+                <Link
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={faFacebook}
+                    className="text-primary text-lg mr-2"
+                    width={30}
+                    height={30}
+                  />
+                  facebook.com/dropbox
+                </Link>
+              </div>
+            </div>
+            <div className="flex flex-row gap-1 ">
+            <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]  ">
+              <Link
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="text-primary text-lg mr-2"
+                  width={30}
+                  height={30}
+                />
+                linkedin.com/dropbox
+              </Link>
+            </div>
+           
+            <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]  flex flex-row gap-3 items-center">
+            <MdOutlineMail />
+            
+                <Link
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  nomad@gmail.com
+                </Link>
+             
+            </div>
             </div>
             
           </div>
+        
         </div>
+        <hr />
       </div>
     </div>
+    // </div>
   );
 }
 
