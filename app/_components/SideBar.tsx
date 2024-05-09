@@ -3,7 +3,6 @@ import React, { useContext, useEffect } from 'react'
 import Image from 'next/image'
 import sideBarSvg from '../../public/sideBarSvg.svg';
 import logo from "../../public/eurobridg.svg";
-import avatar from '../../public/Avatar.png';
 import Link from 'next/link';
 import { SideBarContext } from '@/contexts/SideBar/SideBarContext';
 import AuthContext from '@/contexts/auth/AuthProvider';
@@ -12,6 +11,7 @@ import axios from '@/api/axios';
 const SideBar = () => {
     const { auth }: any = useContext(AuthContext);
     const { links, settings, handleClick, handleClickSettings } = useContext(SideBarContext);
+    const avatar = auth.user.image;
 
   return (
     <>
@@ -34,8 +34,8 @@ const SideBar = () => {
     
             </ul>
             <div className="profile mt-10 text-center flex flex-col justify-center md:text-left md:flex-row md:justify-around items-center w-4/5 mx-auto ">
-              <div className="profile-pic relative z-10 rounded-full">
-                <Image src={avatar} alt="avatar" className="w-10 sm:w-14 sm:h-14 rounded-full mr-2"  width={30} height={30}/>
+              <div className="profile-pic relative z-10 rounded-full h-14 w-14">
+                <Image src={avatar} alt="avatar" className="w-10 sm:w-14 sm:h-14 rounded-full mr-2"  width={40} height={40} layout='responsive' loading='lazy' quality={80} />
               </div>
               <div className="profile-details py-1 text-xs md:text-sm">
                 <h3 className="profile-name font-bold text-black text-xs hidden sm:block sm:text-sm lg:text-xl">{auth.user.name}</h3>

@@ -69,6 +69,10 @@ const Messages = () => {
         setContacts(newContacts);
         setSelectedContact(selectedContact);
     }
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+    }, [auth]);
 
     useEffect(() => {
         const newLinks = links.map((link, index) => {
@@ -85,7 +89,7 @@ const Messages = () => {
           }
         })
         handleSideBar(newLinks, {...settings, active: false});
-    }, []);
+    }, [auth]);
 
     useEffect(() => {
         const newContacts = contacts.map(contact => {
@@ -97,7 +101,7 @@ const Messages = () => {
             return contact;
         });
         setContacts(newContacts);
-    }, [selectedContact]);
+    }, [selectedContact , contacts]);
 
     useEffect(() => {
         const res = axios.get(`/users/${auth?.user?.id}/contacts`,
@@ -113,7 +117,7 @@ const Messages = () => {
             setContacts(res.data);
         });
 
-    }, []);
+    }, [auth]);
 
     return (
         <>
@@ -128,12 +132,12 @@ const Messages = () => {
                                     <ContactSearch handleFilter={handleFilter} />
                                     <Contacts contacts={contacts} handleClick={handleClick} />
                                 </div>
-                                <ContactChat contact={selectedContact} selectedContact={selectedContact}/>
+                                <ContactChat contact={selectedContact} selectedContact={selectedContact} contacts={contacts} handleChangeContacts={setContacts} />
                             </div>
                         </div>
                     </div>
-                    </SocketProvider>)
-                }
+                    </SocketProvider>) 
+                } 
         </>
     )
 }

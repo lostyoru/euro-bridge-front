@@ -16,6 +16,8 @@ import axios from '@/api/axios';
 type ContactChatProp = {
     contact: chatProfile;
     selectedContact: chatProfile;
+    handleChangeContacts: React.Dispatch<React.SetStateAction<chatProfile[]>>;
+    contacts: chatProfile[];
 }
 
 const ContactChat = (source: ContactChatProp) => {
@@ -26,7 +28,7 @@ const ContactChat = (source: ContactChatProp) => {
     const [message, setMessage] = useState<string>('');
     const [messages, setMessages] = useState<Message[]>(contact.messages);
     const chat = useRef<HTMLDivElement>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+
 
     useScrollChat(chat, contact, selectedContact); 
     const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,7 +36,7 @@ const ContactChat = (source: ContactChatProp) => {
         if (message === '') return;
         const newMessage = {
             content: message,
-            createdAt: `${new Date().toLocaleTimeString().slice(0, -3)}`,
+            createdAt: `${new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}`,
             sender: auth.user,
             receiver: contact.contact,
         }
@@ -47,9 +49,21 @@ const ContactChat = (source: ContactChatProp) => {
         console.log('Message sent!');
         setMessages(newMessages);
         console.log("new messages", newMessages);
+        contact.lastMessage = message;
+        contact.lastMessageTime = newMessage.createdAt;
+        contact.messages = newMessages;
+        const newContacts = source.contacts.filter((contact) => contact.contact.email !== selectedContact.contact.email);
+        source.handleChangeContacts([...newContacts, contact]);
+        console.log('new contacts', newContacts);
         setMessage('');
     }
 
+    useEffect(() => {
+        console.log('Selected contact changed! : ', auth.user);
+        console.log('Selected contact changed! : ', selectedContact.messages);
+        console.log('contact changed! : ', contact.messages);
+        setMessages(contact.messages);
+    }, [auth.user.email, contact.messages]);
 
     useEffect(() => {
 
@@ -59,6 +73,7 @@ const ContactChat = (source: ContactChatProp) => {
             const newMessages: Message[] = [...messages, {...data}];
             console.log("old messages", messages);
             console.log("new messages", newMessages);
+            
             setMessages(newMessages);
         }
     
@@ -66,7 +81,7 @@ const ContactChat = (source: ContactChatProp) => {
             console.log('Socket connected!');
             socket.emit('join', auth.user.email );
         });
-      
+
         socket.on('message', handleReceiveMessage);
     
         return () => {
@@ -99,6 +114,8 @@ const ContactChat = (source: ContactChatProp) => {
         <ul className="messages p-5 w-full flex flex-col h-full relative mb-5">
             {messages ? (messages.map((message, index) => (
                 <li key={index} className={`flex  ${message.sender.email !== auth.user.email ? 'flex-row self-start ' : 'flex-row-reverse self-end' } items-start  w-10/12 my-5`}>
+                    <>{console.log(message)}</>
+                    <>{console.log(message.sender.email !== auth.user.email )}</>
                     <div className={`message-pfp ${message.sender.email !== auth.user.email ? 'mr-2' : 'ml-2'} w-16 flex flex-row justify-center items-center`}>
                         {contact.contact.image && <Image src={message.sender.email !== auth.user.email ? contact.contact.image : selfPfp} alt="pfp" className='rounded-full' width={40} height={40}/>}
                     </div>
