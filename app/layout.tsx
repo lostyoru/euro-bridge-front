@@ -6,6 +6,8 @@ import Footer from "./_components/Footer";
 import Herosection from "./_components/Herosection";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import SideBarProvider from "@/contexts/SideBar/SideBarProvider";
+import {AuthProvider} from "@/contexts/auth/AuthProvider";
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,11 +25,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head> <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet"></link></head>
-      <body className={inter.className}>
-        {/* <Navbar /> */}
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <AuthProvider>
+          <SideBarProvider>
+          {/* <Navbar /> */}
 
-        <main>{children}</main>
-        {/* <Footer/> */}
+          <main>{children}</main>
+          {/* <Footer/> */}
+          </SideBarProvider>
+        </AuthProvider>
       </body>
 
     </html>

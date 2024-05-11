@@ -1,111 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
 
-body {
-  font-family: Inter;
-}
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
 
-.flexCenter {
-  @apply flex justify-center items-center;
-}
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
 
-.flexBetween {
-  @apply flex justify-between items-center;
-}
+      --primary: 222.2 47.4% 11.2%;
+      --primary-foreground: 210 40% 98%;
 
-.flexStart {
-  @apply flex items-center justify-start;
-}
+      --secondary: 210 40% 96.1%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
 
-.text-small {
-  @apply text-sm font-medium;
-}
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
 
-.paddings {
-  @apply lg:px-20 py-6 px-5;
-}
+      --accent: 210 40% 96.1%;
+      --accent-foreground: 222.2 47.4% 11.2%;
 
-footer { 
-  background-color: #202430;
-  padding: 100px 30px 30px 30px;
-}
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
 
-.footer-spc-color {
-  color: #92989F;
-}
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 222.2 84% 4.9%;
 
-input[type='radio']:checked + .checkbox-label {
-  background-color: #E9EBFD;
-}
+      --radius: 0.5rem;
+    }
 
-.spc-text::after, .spc-text::before {
-  position: absolute;
-  content: '';
-  width: 50%;
-  height: 2px;
-  background-color: #D6DDEB;
-  top: 50%;
-}
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
 
-.spc-text::after {
-  right: -50%;
-}
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
 
-.spc-text::before {
-  left: -50%;
-}
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
 
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-}
+      --primary: 210 40% 98%;
+      --primary-foreground: 222.2 47.4% 11.2%;
 
-.side-bar {
-  border-right: solid 2px #CCCCF5;
-}
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
 
-.active-li {
-  background-color: #E9EBFD;
-}
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
 
-.active-li {
-  color: #4640DE;
-  font-weight: 500;
-}
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
 
-.active-li::after {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 80%;
-  background-color: #4640DE;
-  top: 50%;
-  translate: 0 -50%;
-  left: -19px;
-}
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
 
-li:hover {
-  color: #4640DE;
-  background-color: #E9EBFD;
-}
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 212.7 26.8% 83.9%;
+    }
+  }
 
-li:hover .side-bar-icons {
-  color: #4640DE;
-}
-
-.side-bar-icons {
-  color: #7C8493;
-  width: 25px;
-  height: 25px;
-  font-weight: bold;
-}
-
-
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }
