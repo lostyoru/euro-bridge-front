@@ -101,7 +101,7 @@ const Messages = () => {
             return contact;
         });
         setContacts(newContacts);
-    }, [selectedContact , contacts]);
+    }, [selectedContact]);
 
     useEffect(() => {
         const res = axios.get(`/users/${auth?.user?.id}/contacts`,

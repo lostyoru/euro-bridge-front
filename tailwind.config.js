@@ -14,30 +14,32 @@ module.exports = {
         body: ["Clash Display"],
       },
       colors: {
-        'primary': '#4640DE',
-        'bground':'#F8F8FD',
-        'p':'#515B6F',
-        'second':'#26A4FF'
+        primary: "#4640DE",
+        bground: "#F8F8FD",
+        p: "#515B6F",
+        second: "#26A4FF",
+      },
+      backgroundImage: {
+        "profile": "url('/Header-Photo.jpg')", // Removed the space before "profile"
       },
     },
     screens: {
-      'xs': '475px',
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
+      md: "768px",
       // => @media (min-width: 768px) { ... }
-      '2md': '850px',
+      "2md": "850px",
 
-      'lg': '1024px',
+      lg: "1024px",
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      xl: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
-    }
+    },
   },
   plugins: [],
 };
