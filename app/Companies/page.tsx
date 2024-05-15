@@ -1,7 +1,7 @@
 import React from "react";
-import Search from "../_components/Search";
+import Search from "../components/Search";
 import Image from "next/image";
-import CompanyCard from "../_components/CompanyCard";
+import CompanyCard from "../components/CompanyCard";
 
 function page() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);

@@ -7,6 +7,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { TbBuildingSkyscraper } from "react-icons/tb";
 import { MdOutlineSettings } from "react-icons/md";
 import { SideBarElement } from '@/types/sideBarElement';
+
 export const SideBarContext = createContext({
   links: [
     {
@@ -68,7 +69,7 @@ export const SideBarContext = createContext({
       )
     },
     active: false,
-    link: "http://localhost:3000/profile/settings"
+    link: "http://localhost:3000/profileSettings"
   },
   handleClick: (index: number):void => {},
   handleClickSettings: () => {},

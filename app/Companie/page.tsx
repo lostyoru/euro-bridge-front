@@ -9,8 +9,8 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import Intershipshome from "../_components/Intershipshome";
-import Companie1 from "../_components/Companie1";
+import Intershipshome from "../components/Intershipshome";
+import Companie1 from "../components/Companie1";
 function Companie() {
   return (
     <div>

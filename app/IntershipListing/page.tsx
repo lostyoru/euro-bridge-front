@@ -1,6 +1,7 @@
 'use client'
+/* eslint-disable */
 import React, { useState } from "react";
-import SideBar from "../_components/SideBar";
+import SideBar from "../components/SideBar";
 import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa6";
 import { IoLanguageSharp } from "react-icons/io5";
@@ -8,7 +9,7 @@ import { IoPhonePortraitOutline } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
 import { SiWebauthn } from "react-icons/si";
-function page() {
+function popup() {
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
@@ -276,4 +277,4 @@ function page() {
   );
 }
 
-export default page;
+export default popup;

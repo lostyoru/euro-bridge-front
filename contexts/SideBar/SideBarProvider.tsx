@@ -79,7 +79,7 @@ function SideBarProvider({
           )
         },
         active: false,
-        link: "http://localhost:3000/profile/settings"
+        link: "http://localhost:3000/profileSettings"
       })
     
       const handleClick = (index: number) => {

@@ -1,5 +1,5 @@
 
-import SideBar from '../_components/SideBar'
+import SideBar from '../components/SideBar'
 import Link from "next/link";
 import React, { useContext } from "react";
 import Image from "next/image";
@@ -11,9 +11,9 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import Intershipshome from "../_components/Intershipshome";
-import Companie1 from "../_components/Companie1";
-import Companie1auth from '../_components/Companie1auth';
+import Intershipshome from "../components/Intershipshome";
+import Companie1 from "../components/Companie1";
+import Companie1auth from '../components/Companie1auth';
 
 function Companie() {
 
@@ -130,4 +130,3 @@ function Companie() {
 }
 
 export default Companie
-

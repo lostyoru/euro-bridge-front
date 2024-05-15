@@ -1,7 +1,8 @@
 "use client";
+/* eslint-disable */
 import React, { useState } from "react";
 import { MdOutlineMail } from "react-icons/md";
-import SideBar from "../_components/SideBar";
+import SideBar from "../components/SideBar";
 
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

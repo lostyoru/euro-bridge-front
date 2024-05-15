@@ -1,10 +1,10 @@
 "use client";
 /* eslint-disable */
 import React from "react";
-import SideBar from "../_components/SideBar";
-import FilterSection from "../_components/FilterSection";
-import Search from "../_components/Search";
-import IntershipCardAllauth from "../_components/IntershipCardAllauth";
+import SideBar from "../components/SideBar";
+import FilterSection from "../components/FilterSection";
+import Search from "../components/Search";
+import IntershipCardAllauth from "../components/IntershipCardAllauth";
 import { SideBarContext } from "@/contexts/SideBar/SideBarContext";
 import { useContext, useEffect } from "react";
 import AuthContext from "@/contexts/auth/AuthProvider";

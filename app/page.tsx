@@ -1,6 +1,6 @@
-import Herosection from "./_components/Herosection";
-import Brand from "./_components/Brands/Brand";
-import Intershipshome from "./_components/Intershipshome";
+import Herosection from "./components/Herosection";
+import Brand from "./components/Brands/Brand";
+import Intershipshome from "./components/Intershipshome";
 export default function Home() {
   return <>
   <Herosection/>

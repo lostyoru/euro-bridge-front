@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
-import Footer from "./_components/Footer";
-import Herosection from "./_components/Herosection";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Herosection from "./components/Herosection";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import SideBarProvider from "@/contexts/SideBar/SideBarProvider";
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <head> <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet"></link></head>
       <body className={inter.className} suppressHydrationWarning={true}>
+      <AppRouterCacheProvider>  
         <AuthProvider>
           <SideBarProvider>
           {/* <Navbar /> */}
@@ -34,6 +36,7 @@ export default function RootLayout({
           {/* <Footer/> */}
           </SideBarProvider>
         </AuthProvider>
+        </AppRouterCacheProvider>
       </body>
 
     </html>

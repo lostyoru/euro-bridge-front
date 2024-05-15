@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import React from 'react'
 import eclips from '../../public/Ellipse 1 (5).png'
 import man from '../../public/man.png'
 import group110 from '../../public/110.png'
 import Image from 'next/image'
-import AuthForm from '../_components/auth/AuthForm'
+import AuthForm from '../components/auth/AuthForm'
 import { useState } from 'react'
 
 function Auth()  {

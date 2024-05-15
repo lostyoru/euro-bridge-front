@@ -1,8 +1,8 @@
 import React from "react";
-import Search from "../_components/Search";
+import Search from "../components/Search";
 import Image from "next/image";
-import FilterSection from "../_components/FilterSection";
-import IntershipCardAll from "../_components/IntershipCardAll";
+import FilterSection from "../components/FilterSection";
+import IntershipCardAll from "../components/IntershipCardAll";
 
 export default function page() {
   return (

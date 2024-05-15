@@ -1,10 +1,10 @@
 "use client";
 /* eslint-disable */
 import React, { useEffect } from "react";
-import SideBar from "../_components/SideBar";
-import Search from "../_components/Search";
-import CompanyCard from "../_components/CompanyCard";
-import CompanyCardAuth from "../_components/CompanyCardAuth";
+import SideBar from "../components/SideBar";
+import Search from "../components/Search";
+import CompanyCard from "../components/CompanyCard";
+import CompanyCardAuth from "../components/CompanyCardAuth";
 import { SideBarContext } from "@/contexts/SideBar/SideBarContext";
 import { useContext } from "react";
 import AuthContext from "@/contexts/auth/AuthProvider";

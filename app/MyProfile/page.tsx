@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import SideBar from "../_components/SideBar";
+import SideBar from "../components/SideBar";
 import { FaTwitter } from "react-icons/fa";
 import { SiWebauthn } from "react-icons/si";
 import { FaInstagram } from "react-icons/fa6";
@@ -10,6 +10,7 @@ import { IoPhonePortraitOutline } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
+import Image from "next/image";
 const Page = () => {
   const [isEditable, setIsEditable] = useState(false);
   const [content, setContent] = useState("");
@@ -45,7 +46,7 @@ const Page = () => {
                 <div className="relative bg-profile h-[140px] bg-cover ">
                   <div className="absolute top-6 right-3">
                     <Link href="/">
-                      <img
+                      <Image
                         src="/Edit.png"
                         alt="Company Logo"
                         width={40}
@@ -57,7 +58,7 @@ const Page = () => {
                 </div>
                 <div className="flex flex-row px-5 py-6 gap-10 justify-around items-center">
                   <div className="  overflow-visible flex flex-row items-center relative z-10 ">
-                    <img
+                    <Image
                       src="/AvatarPro.png"
                       alt="Company Logo"
                       width={130}
@@ -92,7 +93,7 @@ const Page = () => {
                   </h1>
 
                   <Link href="/">
-                    <img
+                    <Image
                       src="/EditBlue.png"
                       alt="Edit Button"
                       width={40}
@@ -150,7 +151,7 @@ const Page = () => {
                 <div className="flex flex-row justify-between items-center">
                   <h1 className="font-semibold capitalize">About Me</h1>
                   <button type="button" onClick={handleEditClick}>
-                    <img
+                    <Image
                       src="/EditBlue.png"
                       alt="Edit About Me"
                       width={40}
@@ -182,7 +183,7 @@ const Page = () => {
                   </h1>
 
                   <Link href="/">
-                    <img
+                    <Image
                       src="/EditBlue.png"
                       alt="Edit Button"
                       width={40}
