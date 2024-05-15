@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
+
 import FormLabel from "@mui/material/FormLabel";
 import SideBar from "../_components/SideBar";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+
 import Image from "next/image";
 import Post from "../_components/Post";
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 function Page() {
   const [activeStep, setActiveStep] = useState(1); // State to track active step, default to step 1
   const [age, setAge] = React.useState("");
@@ -19,6 +20,9 @@ function Page() {
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value);
   };
+
+
+ 
   return (
     <div className="flex flex-row">
       <SideBar />
@@ -199,7 +203,7 @@ function Page() {
               <div className="mb-2">
                 <h1 className="font-bold mb-2">Basic Information</h1>
                 <p className="text-p">
-                this information will be displayed publicly
+                  this information will be displayed publicly
                 </p>
               </div>
               <hr />
@@ -228,7 +232,7 @@ function Page() {
                     You can select multiple type of <br></br>employment
                   </p>
                 </div>
-                <div>
+                <div className="">
                   <FormControl>
                     <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
                     <RadioGroup
@@ -283,18 +287,18 @@ function Page() {
                       categories
                     </p>
                   </div>
-                  <div className="flex-col flex gap-2 justify-center items-start mb-4">
-                    <h1 className=""> </h1>
+                  <div className="flex-col flex  justify-center items-start mb-4">
+                    <h1 className="font-semibold"> Select Job categories</h1>
                     <div>
-                      <label
+                      {/* <label
                         htmlFor="HeadlineAct"
-                        className="block  font-semibold "
+                        className="block   "
                       >
                         {" "}
-                        Select Job categories
-                      </label>
+                      
+                      </label> */}
 
-                      <select
+                      {/* <select
                         name="HeadlineAct"
                         id="HeadlineAct"
                         className="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
@@ -304,11 +308,35 @@ function Page() {
                         </option>
                         <option value="SRV">Part Time</option>
                         <option value="JM">Remote</option>
-                      </select>
+                      </select> */}
+
+                      {/* <Select/> */}
+                      <div>
+                        <FormControl
+                          variant="standard"
+                          sx={{ m: 0, minWidth: 220 }}
+                        >
+                          <InputLabel id="demo-simple-select-standard-label">
+                            select intership categories
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-standard-label"
+                            id="demo-simple-select-standard"
+                            value={age}
+                            onChange={handleChange}
+                            label="Age"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>social media assistant</MenuItem>
+                            <MenuItem value={20}>software engeineer</MenuItem>
+                            <MenuItem value={30}>computer scientist</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
                     </div>
                   </div>
-                
-
                 </div>{" "}
                 <hr />
               </div>
