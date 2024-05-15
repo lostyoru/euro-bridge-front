@@ -157,7 +157,7 @@ function Page() {
               </div>
               <hr />
               <div className=" flex flex-row gap-16 justify-start my-4">
-                <div className=" flex flex-col mr-18 ">
+                <div className=" flex flex-col mr-2 ">
                   <h1 className="font-bold  mb-2"> Qualifications</h1>
                   <p className="text-p">
                     Outline the core Qualifications of the positio
@@ -171,7 +171,7 @@ function Page() {
                 ></textarea>
               </div>
               <hr />
-              <div className=" flex flex-row gap-20 justify-start my-4">
+              <div className=" flex flex-row gap-12 justify-start my-4">
                 <div className=" flex flex-col mr-8">
                   <h1 className="font-bold  mb-2"> Who You Are</h1>
                   <p className="text-p">
@@ -207,7 +207,7 @@ function Page() {
                 </p>
               </div>
               <hr />
-              <div className="flex-row flex justify-start items-start gap-20 mb-4 ">
+              <div className="flex-row flex justify-start items-start gap-24 mb-4 ">
                 <div className="flex-col flex gap-3">
                   <h1 className="font-bold"> Intership Title </h1>
                   <p className="text-p">
