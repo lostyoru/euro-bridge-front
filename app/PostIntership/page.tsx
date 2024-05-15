@@ -225,7 +225,7 @@ function Page() {
                 </div>
               </div>
               <hr />
-              <div className="flex-row flex gap-20 justify-start items-start mt-4">
+              <div className="flex-row flex gap-12 justify-start items-start mt-4">
                 <div className="flex-col flex gap-2">
                   <h1 className="font-semibold">Type of Employment</h1>
                   <p className="text-p">
@@ -261,7 +261,7 @@ function Page() {
               </div>
               <hr />
               <div>
-                <div className="flex-row flex justify-start items-start gap-20 mt-2 mb-4 ">
+                <div className="flex-row flex justify-start items-start gap-20 mt-2 mb-8 ">
                   <div className="flex-col flex gap-3">
                     <h1 className="font-bold"> Field of Studies </h1>
                     <p className="text-p">
@@ -279,7 +279,7 @@ function Page() {
                   </div>
                 </div>
                 <hr />
-                <div className="flex-row flex gap-20 mt-4 items-start mb-4">
+                {/* <div className=" cat flex-row flex gap-20 mt-4 items-start mb-4">
                   <div className="flex-col flex gap-3">
                     <h1 className="font-semibold"> Categories</h1>
                     <p className="text-p">
@@ -290,27 +290,7 @@ function Page() {
                   <div className="flex-col flex  justify-center items-start mb-4">
                     <h1 className="font-semibold"> Select Job categories</h1>
                     <div>
-                      {/* <label
-                        htmlFor="HeadlineAct"
-                        className="block   "
-                      >
-                        {" "}
-                      
-                      </label> */}
-
-                      {/* <select
-                        name="HeadlineAct"
-                        id="HeadlineAct"
-                        className="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
-                      >
-                        <option value="JH" className="p-4">
-                          Full Time
-                        </option>
-                        <option value="SRV">Part Time</option>
-                        <option value="JM">Remote</option>
-                      </select> */}
-
-                      {/* <Select/> */}
+               
                       <div>
                         <FormControl
                           variant="standard"
@@ -337,8 +317,16 @@ function Page() {
                       </div>
                     </div>
                   </div>
-                </div>{" "}
+                </div> */}
                 <hr />
+                <div className=" flex flex-row justify-end mt-2">
+                <button
+                  type="button"
+                  className="  text-[#FFFFFF] px-8 h-12  w-[25px]items-center bg-primary"
+                  onClick={() => setActiveStep(2)} >
+                  Next Step
+                </button>
+              </div>
               </div>
             </div>
           )}
