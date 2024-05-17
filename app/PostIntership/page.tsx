@@ -4,9 +4,9 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import SideBar from "../_components/SideBar";
+import SideBar from "../components/SideBar";
 import Image from "next/image";
-import Post from "../_components/Post";
+import Post from "../components/Post";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -167,7 +167,7 @@ function Page() {
                   <div className="flex flex-col mr-8">
                     <h1 className="font-bold mb-2">Who You Are</h1>
                     <p className="text-p">
-                      Add your preferred candidate's <br /> qualifications
+                      Add your preferred candidate <br /> qualifications
                     </p>
                   </div>
                   <textarea
