@@ -28,7 +28,7 @@ export const SideBarContext = createContext({
         )
       },
       active: false,
-      link: "http://localhost:3000/myapp"
+      link: "http://localhost:3000/myapplications"
     },
     {
       name: 'Find Interships',
@@ -58,7 +58,7 @@ export const SideBarContext = createContext({
         )
       },
       active: false,
-      link: "http://localhost:3000/profile"
+      link: "http://localhost:3000/MyProfile"
     }
   ],
   settings: {

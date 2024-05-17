@@ -34,7 +34,7 @@ const Page = () => {
   return (
     <div className="flex flex-row">
       <SideBar />
-      <div className="w-4/5">
+      <div className="w-4/5 hide-y-scroll overflow-hidden h-screen">
         <h1 className="text-[28px] font-bold font-body p-8 capitalize">
           My Profile
         </h1>
@@ -79,7 +79,7 @@ const Page = () => {
                   </div>
 
                   <div className="text-primary p-2 border-primary border-2 ">
-                    <Link href="/Setings">
+                    <Link href="/profileSettings">
                       <button type="button">Edit profile</button>
                     </Link>
                   </div>

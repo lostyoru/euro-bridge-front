@@ -36,7 +36,7 @@ function page() {
   return (
     <div className="flex flex-row">
       <SideBar />
-      <div className="w-4/5 ">
+      <div className="w-4/5 hide-y-scroll overflow-hidden h-screen">
         <div className="flex flex-row  gap-4 p-8 justify-start items-start ">
           <Image src="/Nomad.png" alt="Company Logo" width={60} height={50} />
           <div className="flex flex-col items-center gap-1">

@@ -31,7 +31,7 @@ function Intershipsauth() {
     <div className="flex flex-row  ">
       <SideBar  />
 
-      <div className="w-4/5 px-10 ">
+      <div className="w-4/5 px-10 hide-y-scroll overflow-hidden h-screen ">
         
           <div className="flex flex-col ">
             <h1 className="text-[28px] font-bold font-body mt-10 mb-6 capitalize">

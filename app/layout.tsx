@@ -1,5 +1,5 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import type { Metadata } from "next";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head> <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet"></link></head>
+      <head> <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap" rel="stylesheet"></link> </head>
       <body className={inter.className} suppressHydrationWarning={true}>
       <AppRouterCacheProvider>  
         <AuthProvider>
@@ -37,6 +37,7 @@ export default function RootLayout({
           </SideBarProvider>
         </AuthProvider>
         </AppRouterCacheProvider>
+
       </body>
 
     </html>

@@ -11,7 +11,7 @@ function page() {
   return (
     <div className="flex flex-row">
       <SideBar />
-      <div className="w-4/5">
+      <div className="w-4/5 hide-y-scroll overflow-hidden h-screen">
         <h1 className="text-[28px] font-bold  font-body p-10 capitalize">
           Intership description
         </h1>
