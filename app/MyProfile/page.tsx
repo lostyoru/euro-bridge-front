@@ -66,16 +66,18 @@ const Page = () => {
                       className="mr-4 -mt-16"
                     />
                     <div className="flex flex-col gap-1 self-start">
-                    <h1 className="font-bold text-[18px] font-body">
-                      {" "}
-                      mohamed tahar
-                    </h1>
-                    <p className="text-p ">front end developer at eurobridg</p>
-                    <div className="flex flex-row text-p gap-2">
-                      <IoLocationOutline />
-                      <p>bejaia amizour</p>
+                      <h1 className="font-bold text-[18px] font-body">
+                        {" "}
+                        mohamed tahar
+                      </h1>
+                      <p className="text-p ">
+                        front end developer at eurobridg
+                      </p>
+                      <div className="flex flex-row text-p gap-2">
+                        <IoLocationOutline />
+                        <p>bejaia amizour</p>
+                      </div>
                     </div>
-                  </div>
                   </div>
 
                   <div className="text-primary p-2 border-primary border-2 ">
@@ -175,7 +177,7 @@ const Page = () => {
                   />
                 </div>
               </div>
-              <div className="w-[250px] border-2 mt-1 p-4">
+              <div className="w-[250px] border-2  p-4">
                 <div className="flex flex-row justify-between items-center ">
                   <h1 className="font-semibold text-[20px] capitalize mr-4">
                     {" "}
@@ -238,7 +240,6 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   );

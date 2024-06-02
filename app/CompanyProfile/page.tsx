@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { MdOutlineMail } from "react-icons/md";
 import SideBar from "../components/SideBar";
-
+import uploadImage from "@/public/EditWhite.png";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,6 +15,25 @@ import {
 import Link from "next/link";
 
 function page() {
+  const [pfp, setPfp] = React.useState("/Nomad.png");
+  const handleUpload = () => {
+    const uploadPfp = document.getElementById("upload-pfp");
+    uploadPfp?.click();
+    const profilePfp = document.getElementById("profilepfp");
+    uploadPfp?.addEventListener("change", (e) => {
+      const file = (e.target as HTMLInputElement).files;
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          if (profilePfp) {
+            setPfp(reader.result as string);
+            profilePfp.setAttribute("src", reader.result as string);
+          }
+        };
+        reader.readAsDataURL(file[0]);
+      }
+    });
+  };
   const [isEditable, setIsEditable] = useState(false);
   const [content, setContent] = useState("");
 
@@ -51,20 +70,38 @@ function page() {
         <div className="p-8">
           <div className="flex flex-row gap-4 items-center ">
             <div className="realtive">
-              <div className="absolute ml-2 mt-4">
+              <div className="absolute ml-1 mt-2">
+                <input
+                  type="file"
+                  name="upload-pfp"
+                  id="upload-pfp"
+                  className=" z-10 opacity-0 "
+                />
                 <Image
-                  src="/EditWhite.png"
+                  src={uploadImage}
+                  onClick={handleUpload}
                   alt="Company Logo"
                   width={30}
                   height={50}
                 />
               </div>
-              <Image
-                src="/Nomad.png"
+              <div>
+                <Image
+                  src={pfp}
+                  alt="profile"
+                 
+                  width={140}
+                  height={50}
+                  className="rounded-full"
+                  id="profilepfp"
+                />
+              </div>
+              {/* <Image
+                src={pfp}
                 alt="Company Logo"
                 width={140}
                 height={50}
-              />
+              /> */}
             </div>
 
             <p className="text-primary  mr-20 self-end ">hhtps://nomad.com</p>
@@ -148,25 +185,25 @@ function page() {
               </div>
             </div>
             <div className="flex flex-row gap-1 ">
-            <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]  ">
-              <Link
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  className="text-primary text-lg mr-2"
-                  width={30}
-                  height={30}
-                />
-                linkedin.com/dropbox
-              </Link>
-            </div>
-           
-            <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]  flex flex-row gap-3 items-center">
-            <MdOutlineMail />
-            
+              <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]  ">
+                <Link
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    className="text-primary text-lg mr-2"
+                    width={30}
+                    height={30}
+                  />
+                  linkedin.com/dropbox
+                </Link>
+              </div>
+
+              <div className="border-[1.5px] border-primary p-1.5 text-primary w-[240px]  flex flex-row gap-3 items-center">
+                <MdOutlineMail />
+
                 <Link
                   href="https://www.facebook.com/"
                   target="_blank"
@@ -174,12 +211,9 @@ function page() {
                 >
                   nomad@gmail.com
                 </Link>
-             
+              </div>
             </div>
-            </div>
-            
           </div>
-        
         </div>
         <hr />
       </div>
