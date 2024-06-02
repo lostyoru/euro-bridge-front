@@ -1,6 +1,6 @@
 "use client";
 /* eslint-disable */
-import React from 'react';
+import React, { Children } from 'react';
 import SideBar from '../components/SideBar';
 import { useState } from 'react';
 // import { importedContacts } from './profile';
@@ -13,9 +13,14 @@ import { chatProfile } from '@/types/chatProfile';
 import AuthContext from '@/contexts/auth/AuthProvider';
 import axios from '@/api/axios';
 import { SocketProvider } from '@/contexts/socket/SocketContext';
-import { Suspense } from 'react';
-const Messages = () => {
+import RequireAuth  from '@/app/components/auth/RequireAuth';
+import { NextPage } from 'next';
+import useRefreshToken from '@/hooks/useRefreshToken';
+import PersistentLogin from '../components/PersistentLogin';
+import useAxiosPrivate from '@/hooks/useAxiosPrivate';
+const Messages: NextPage = () => {
     const chatWidth = 'calc(100% - 73px)';
+    const axiosPrivate = useAxiosPrivate();
     const { auth }: any = useContext(AuthContext);
     const [contacts, setContacts] = useState<chatProfile[]>([]);
     const allContacts = contacts;
@@ -73,6 +78,7 @@ const Messages = () => {
     
     useEffect(() => {
         const token = localStorage.getItem('token');
+        console.log('auth from chat', auth);
     }, [auth]);
 
     useEffect(() => {
@@ -106,7 +112,7 @@ const Messages = () => {
 
     useEffect(() => {
         console.log('refresh ' , auth);
-        const res = axios.get(`/users/${auth?.user?.id}/contacts`,
+        const res = axiosPrivate.get(`/users/${auth?.user?.id}/contacts`,
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -123,26 +129,28 @@ const Messages = () => {
 
 
     return (
-        <Suspense fallback={<div>Loading contacts...</div>}>
-            {auth.user && contacts.length >= 0 && (
-                <SocketProvider>
-                    <div className='flex flex-row w-full h-screen overflow-hidden'>
-                        <SideBar />
-                        <div className="chat sm:w-4/5 h-[650px] lg:h-[905px]" style={{ 'width': chatWidth}}>
+        <PersistentLogin
+            Children={
+                <RequireAuth allowedRoles={['INTERSHIP_SEEKER', 'COMPANY']}>
+                    <SocketProvider>
+                        <div className='flex flex-row w-full h-screen'>
+                            <SideBar />
+                            <div className="chat sm:w-4/5 hide-y-scroll" style={{ 'width': chatWidth}}>
                             <h3 className='chat-title font-bold text-3xl capitalize px-2 lg:px-10 py-10 border-b border-solid border-[#CCCCF5] cursor-pointer' onClick={() => setSelectedContact(nonSelectedContact)}>messages</h3>
-                            <div className="chat flex flex-row h-full relative">
-                                <div className="contacts flex flex-col justify-start sm:justify-center w-full sm:w-5/12 md:w-1/3 border-r border-solid border-[#CCCCF5] py-10 px-2 lg:p-10 overflow-hidden h-full">
-                                    <ContactSearch handleFilter={handleFilter} />
-                                    <Contacts contacts={contacts} handleClick={handleClick} />
+                                <div className="chat flex flex-row h-full relative">
+                                    <div className="contacts flex flex-col justify-start sm:justify-center w-full sm:w-5/12 md:w-1/3 border-r border-solid border-[#CCCCF5] py-10 px-2 lg:p-10 h-full">
+                                        <ContactSearch handleFilter={handleFilter} />
+                                        <Contacts contacts={contacts} handleClick={handleClick} />
+                                    </div>
+                                    <ContactChat contact={selectedContact} selectedContact={selectedContact} contacts={contacts} handleChangeContacts={setContacts} />
                                 </div>
-                                <ContactChat contact={selectedContact} selectedContact={selectedContact} contacts={contacts} handleChangeContacts={setContacts} />
                             </div>
                         </div>
-                    </div>
-                    </SocketProvider>) 
-                } 
-        </Suspense>
+                    </SocketProvider>
+                </RequireAuth>
+            }
+        />
     )
 }
 
-export default Messages
+export default Messages;

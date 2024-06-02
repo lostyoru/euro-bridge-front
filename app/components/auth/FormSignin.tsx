@@ -6,9 +6,9 @@ import AccountType from './AccounType';
 import { authType } from '@/types/authType';
 import { useEffect } from 'react';
 import axios from '@/api/axios';
-import { useRouter } from 'next/navigation'
-import AuthContext from '@/contexts/auth/AuthProvider';
-import { useContext } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import useAuth from '@/hooks/useAuth';
+
 type FormSigninProps = {
     switcher: (e: any) => void;
     switchClass: string;
@@ -16,8 +16,10 @@ type FormSigninProps = {
     }
 
 const FormSignin = (source:FormSigninProps) => {
-    const { handleChangeAuth }:any = useContext(AuthContext);
+    const { handleChangeAuth, setAuth }:any = useAuth();
     const {email, setEmail, password, setPassword, accountType, setAccountType } = source.formsProps;
+    const [error, setError] = React.useState('');
+    const [showError, setShowError] = React.useState(false);
     const router = useRouter();
     useEffect(() => {
         setEmail('');
@@ -36,14 +38,33 @@ const FormSignin = (source:FormSigninProps) => {
                 withCredentials: true
             }).then(res => {
                 console.log(res);
+                console.log(res.data.user.role);
                 localStorage.setItem('token', res.data.accessToken);
-                handleChangeAuth(res.data);
+                setAuth(res.data);
+                setShowError(false);
                 router.push('/chat');
+
             });
-        } catch (error) {
+        } catch (error: any) {
+            if (!error?.response) {
+                setError('No Server Response');
+            } else if (error.response?.status === 400) {
+                setError('Missing Username or Password');
+            } else if (error.response?.status === 401) {
+                setError('Unauthorized');
+            } else {
+                setError('Login Failed');
+            }
             console.log(error);
+            setShowError(true);
+            
         }
     }
+
+    useEffect(() => {
+        setError('');
+    }, [email, password]);
+
   return (
     <form className={`sign-in-form absolute inset-0 z-1 w-full ${source.switchClass} xl:mt-5`} onSubmit={(e) => handleSubmite(e)} >
 
@@ -52,6 +73,9 @@ const FormSignin = (source:FormSigninProps) => {
             <h3 className='text-[28px] font-bold text-center mb-12 w-full'>Welcome Back, Dude</h3>
             <div className="login-txt w-fit mx-auto">
                 <p className='spc-text w-fit mx-auto p-1 relative text-[#202430] mb-6 '>Or login with with email</p>
+            </div>
+            <div className={`w-full flex justify-center items-center text-center bg-red-400 text-white`}>
+                {showError && <p className={error? "m-3" : "m-0"}>{error}</p>}
             </div>
             <label htmlFor="email" className='mb-3 font-semibold text-[#515B6F]'>Email Address</label>
             <input type="email" placeholder='Email Address' className='input w-full py-3 px-2 border-solid border rounded-sm mb-5' id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>

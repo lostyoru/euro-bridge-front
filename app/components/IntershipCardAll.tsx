@@ -12,10 +12,10 @@ type Props = {
 function IntershipCardAll(source: Props) {
   return (
     
-    <div className="flex flex-row justify-between border-2  bg-white w-[1000px]">
-      <div className=" flex flex-row justify-start gap-10 items-center ">
+    <div className="flex flex-row justify-between border-2  bg-white w-full my-3">
+      <div className=" flex flex-row justify-start items-center ">
         
-        <Link href="/Intership" className="ml-8">
+        <Link href="/Intership" className="mx-5">
           <Image
             src={source.image}
             alt="intership"
@@ -27,24 +27,24 @@ function IntershipCardAll(source: Props) {
         <div className="flex flex-col leading-[1.8rem] p-5 ">
           <h1 className="text-black font-bold my-2"> {source.post}</h1>
           <h2 className="text-[#515B6F] mb-3"> {source.location}</h2>
-          <div className="flex flex-row justify-between gap-2 ">
+          <div className="flex flex-row justify-between ">
             <button
               type="button"
-              className="bg-white border-2 border-primary rounded-full text-primary  px-1.5 "
+              className="bg-white border-2 border-primary mx-1 rounded-full text-primary  px-1.5 "
             >
               {" "}
               full time
             </button>
             <button
               type="button"
-              className=" border-2 border-[#56CDAD] rounded-full  px-1.5 text-[#56CDAD]"
+              className=" border-2 border-[#56CDAD] rounded-full mx-1 px-1.5 text-[#56CDAD]"
             >
               {" "}
               marketing
             </button>
             <button
               type="button"
-              className=" text-[#FFB836] border-2 border-[#FFB836]  rounded-full  px-1.5"
+              className=" text-[#FFB836] border-2 border-[#FFB836] mx-1 rounded-full  px-1.5"
             >
               {" "}
               Design

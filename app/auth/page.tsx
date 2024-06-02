@@ -1,17 +1,22 @@
 "use client";
-import React from 'react'
+import React, { useEffect } from 'react'
 import eclips from '../../public/Ellipse 1 (5).png'
 import man from '../../public/man.png'
 import group110 from '../../public/110.png'
 import Image from 'next/image'
 import AuthForm from '../components/auth/AuthForm'
 import { useState } from 'react'
-
+import { useRouter } from 'next/navigation'
 function Auth()  {
     const [inSignin, setInSignin] = useState<boolean>(true);
     const [signupClass, setSignupClass] = useState<string>('hidden');
     const [signinClass, setSigninClass] = useState<string>('flex flex-col justify-center items-center');
-
+    const router = useRouter();
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+            router.push('/chat');
+        }
+    })
     const handleFormSwitch = (e: any) => {
         e.preventDefault();
         console.log('switching form');

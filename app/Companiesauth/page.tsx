@@ -7,10 +7,12 @@ import CompanyCard from "../components/CompanyCard";
 import CompanyCardAuth from "../components/CompanyCardAuth";
 import { SideBarContext } from "@/contexts/SideBar/SideBarContext";
 import { useContext } from "react";
-import AuthContext from "@/contexts/auth/AuthProvider";
+import useAuth from "@/hooks/useAuth";
+import RequireAuth from "../components/auth/RequireAuth";
+import PersistentLogin from "../components/PersistentLogin";
 function Companieauth() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);
-  const { auth }: any = useContext(AuthContext);
+  const { auth }: any = useAuth();
   const { links, settings, handleClick, handleClickSettings, handleSideBar } = useContext(SideBarContext);
   useEffect(() => {
     const newLinks = links.map((link, index) => {
@@ -31,9 +33,11 @@ function Companieauth() {
   }, []); 
 
   return (
-    <div className="flex flex-row">
+    <PersistentLogin Children={
+      <RequireAuth allowedRoles={["INTERSHIP_SEEKER"]}>
+            <div className="flex flex-row">
       <SideBar />
-      <div className="w-4/5 px-10 hide-y-scroll overflow-hidden h-screen">
+      <div className="w-4/5 px-10 hide-y-scroll overflow-hidden h-screen pb-10">
         <div className="flex flex-col">
         <h1 className="text-[28px] font-bold font-body mt-10 mb-6 capitalize">
           Browse companies
@@ -62,6 +66,8 @@ function Companieauth() {
 
       </div>
     </div>
+      </RequireAuth>
+    } />
   );
 }
 

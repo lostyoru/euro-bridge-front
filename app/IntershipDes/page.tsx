@@ -8,9 +8,12 @@ import IntershipCard1 from "../components/IntershipCard1";
 import { FaRegCheckCircle } from "react-icons/fa";
 import IntershipCard1auth from "../components/IntershipCard1auth";
 import Model from "../components/Model";
-
+import useAuth from "@/hooks/useAuth";
+import RequireAuth from "../components/auth/RequireAuth";
+import PersistentLogin from "../components/PersistentLogin";
 function Intership() {
   let [showModel, setShowModel] = useState(false);
+  const { auth }: any = useAuth();
   const handleCloseModel = () => {
     setShowModel(false);
   };
@@ -29,7 +32,9 @@ function Intership() {
     };
   }, [showModel]);
   return (
-    <>
+    <PersistentLogin Children={
+      <RequireAuth allowedRoles={["INTERSHIP_SEEKER"]}>
+              <>
       <div className="flex flex-row">
         <SideBar />
         <div className="w-4/5 hide-y-scroll overflow-hidden h-screen">
@@ -224,6 +229,8 @@ function Intership() {
         location="nomad . hambourg .germany" onClose={handleCloseModel} 
       />
     </>
+      </RequireAuth>
+    } />
   );
 }
 

@@ -111,7 +111,7 @@ const ContactChat = (source: ContactChatProp) => {
             </div>
         </div>
 
-        <ul className="messages p-5 w-full flex flex-col h-full relative mb-5">
+        <ul className="messages p-5 w-full flex flex-col relative mb-3">
             {messages ? (messages.map((message, index) => (
                 <li key={index} className={`flex  ${message.sender.email !== auth.user.email ? 'flex-row self-start ' : 'flex-row-reverse self-end' } items-start  w-10/12 my-5`}>
                     <>{console.log(message)}</>
@@ -137,6 +137,7 @@ const ContactChat = (source: ContactChatProp) => {
             }
             </ul>
             </div>
+            
             <form className='send-message absolute bottom-0 w-full flex flex-row justify-center items-center p-5' onSubmit={(e) => sendMessage(e)} autoComplete='false'>
                 <div className="send-msg-div w-full relative flex flex-row justify-center items-center border border-solid border-[#CCCCF5] h-14">
                     <input type="text" name="message" id="message" className='w-full h-full p-3 outline-none text-lg' placeholder='Type a message...' value={message} onChange={(e) => setMessage(e.target.value)} autoComplete='false' />

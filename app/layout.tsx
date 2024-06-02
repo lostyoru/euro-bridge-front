@@ -30,10 +30,7 @@ export default function RootLayout({
       <AppRouterCacheProvider>  
         <AuthProvider>
           <SideBarProvider>
-          {/* <Navbar /> */}
-
           <main>{children}</main>
-          {/* <Footer/> */}
           </SideBarProvider>
         </AuthProvider>
         </AppRouterCacheProvider>

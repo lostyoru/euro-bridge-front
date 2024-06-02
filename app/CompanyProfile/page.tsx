@@ -13,8 +13,10 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-
-function page() {
+import useAuth from "@/hooks/useAuth";
+import RequireAuth from "../components/auth/RequireAuth";
+import PersistentLogin from "../components/PersistentLogin";
+function Page() {
   const [isEditable, setIsEditable] = useState(false);
   const [content, setContent] = useState("");
 
@@ -34,7 +36,9 @@ function page() {
     }
   };
   return (
-    <div className="flex flex-row">
+    <PersistentLogin Children={
+      <RequireAuth allowedRoles={['INTERSHIP_SEEKER']}>
+            <div className="flex flex-row">
       <SideBar />
       <div className="w-4/5 hide-y-scroll overflow-hidden h-screen">
         <div className="flex flex-row  gap-4 p-8 justify-start items-start ">
@@ -184,8 +188,10 @@ function page() {
         <hr />
       </div>
     </div>
+      </RequireAuth>
+    } />
     // </div>
   );
 }
 
-export default page;
+export default Page;

@@ -1,17 +1,26 @@
 import * as React from 'react';
-import dayjs from 'dayjs';
-import { DemoItem } from '@mui/x-date-pickers/internals/demo';
+import dayjs, { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-
-export default function ResponsiveDatePickers() {
+export default function ResponsiveDatePickers({
+  date,
+  setDate
+}: {
+  date: string,
+  setDate: (date: string) => void
+}) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoItem>
-          <DatePicker defaultValue={dayjs('09-08-1997')} />
-        </DemoItem>
+      <DatePicker
+        defaultValue={dayjs(date)}
+        onChange={(newValue: Dayjs | null) => {
+          if (newValue) {
+            setDate(newValue.format('YYYY-MM-DD'));
+          }
+        }}
+      />
     </LocalizationProvider>
   );
 }

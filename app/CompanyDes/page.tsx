@@ -1,4 +1,4 @@
-
+"use client";
 import SideBar from '../components/SideBar'
 import Link from "next/link";
 import React, { useContext } from "react";
@@ -14,11 +14,15 @@ import {
 import Intershipshome from "../components/Intershipshome";
 import Companie1 from "../components/Companie1";
 import Companie1auth from '../components/Companie1auth';
-
+import useAuth from '@/hooks/useAuth';
+import RequireAuth from '../components/auth/RequireAuth';
+import PersistentLogin from '../components/PersistentLogin';
 function Companie() {
-
+  const { auth }: any = useAuth();
   return ( 
-    <div>
+    <PersistentLogin Children={
+      <RequireAuth allowedRoles={['INTERSHIP_SEEKER']}>
+            <div>
     <div className="flex flex-row">
       <SideBar />
       <div className="w-4/5">
@@ -126,6 +130,8 @@ function Companie() {
       </div>
     </div>
     </div>
+      </RequireAuth>
+    } />
   )
 }
 

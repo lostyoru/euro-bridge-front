@@ -1,0 +1,69 @@
+{
+    "countries": [
+      {
+        "name": "Germany",
+        "cities": ["Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt"]
+      },
+      {
+        "name": "France",
+        "cities": ["Paris", "Marseille", "Lyon", "Toulouse", "Nice"]
+      },
+      {
+        "name": "United Kingdom",
+        "cities": ["London", "Birmingham", "Manchester", "Glasgow", "Edinburgh"]
+      },
+      {
+        "name": "Italy",
+        "cities": ["Rome", "Milan", "Naples", "Turin", "Palermo"]
+      },
+      {
+        "name": "Spain",
+        "cities": ["Madrid", "Barcelona", "Valencia", "Seville", "Zaragoza"]
+      },
+      {
+        "name": "Netherlands",
+        "cities": ["Amsterdam", "Rotterdam", "The Hague", "Utrecht", "Eindhoven"]
+      },
+      {
+        "name": "Belgium",
+        "cities": ["Brussels", "Antwerp", "Ghent", "Bruges", "Liege"]
+      },
+      {
+        "name": "Sweden",
+        "cities": ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras"]
+      },
+      {
+        "name": "Switzerland",
+        "cities": ["Zurich", "Geneva", "Basel", "Lausanne", "Bern"]
+      },
+      {
+        "name": "Austria",
+        "cities": ["Vienna", "Graz", "Linz", "Salzburg", "Innsbruck"]
+      },
+      {
+        "name": "Portugal",
+        "cities": ["Lisbon", "Porto", "Vila Nova de Gaia", "Amadora", "Braga"]
+      },
+      {
+        "name": "Denmark",
+        "cities": ["Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg"]
+      },
+      {
+        "name": "Norway",
+        "cities": ["Oslo", "Bergen", "Stavanger", "Trondheim", "Drammen"]
+      },
+      {
+        "name": "Finland",
+        "cities": ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu"]
+      },
+      {
+        "name": "Ireland",
+        "cities": ["Dublin", "Cork", "Galway", "Limerick", "Waterford"]
+      },
+      {
+        "name": "Greece",
+        "cities": ["Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa"]
+      }
+    ]
+  }
+  

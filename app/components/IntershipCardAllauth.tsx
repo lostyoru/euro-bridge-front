@@ -1,58 +1,56 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 type Props = {
   post: string;
   location: string;
   image: string;
 };
 
-function IntershipCardAllauth(source: Props) {
+function IntershipCardAllauth({ post, location, image }: Props) {
   return (
-    <div className="flex flex-row justify-between border-2  bg-white w-[1000px]">
-      <div className=" flex flex-row justify-start gap-10 items-center ">
-        <Link href="/IntershipDes" className="ml-8">
+    <div className="flex flex-col md:flex-row justify-between border-2 bg-white w-5/12 md:w-[calc(100%-4rem)] mx-auto p-4 md:p-6 mb-6 md:mb-0">
+      <div className="flex flex-row justify-start gap-4 md:gap-10 items-center">
+        <Link href="/IntershipDes">
           <Image
-            src={source.image}
+            src={image}
             alt="intership"
             width={50}
             height={50}
-            className="ml-4"
+            className="cursor-pointer"
           />
         </Link>
-        <div className="flex flex-col leading-[1.8rem] p-5 ">
-          <h1 className="text-black font-bold my-2"> {source.post}</h1>
-          <h2 className="text-[#515B6F] mb-3"> {source.location}</h2>
-          <div className="flex flex-row justify-between gap-2 ">
+        <div className="flex flex-col">
+          <h1 className="text-black font-bold my-2">{post}</h1>
+          <h2 className="text-[#515B6F] mb-3">{location}</h2>
+          <div className="flex flex-row gap-2">
             <button
               type="button"
-              className="bg-white border-2 border-primary rounded-full text-primary  px-1.5 "
+              className="bg-white border-2 border-primary rounded-full text-primary px-2 py-1"
             >
-              {" "}
-              full time
+              Full Time
             </button>
             <button
               type="button"
-              className=" border-2 border-[#56CDAD] rounded-full  px-1.5 text-[#56CDAD]"
+              className="border-2 border-[#56CDAD] rounded-full px-2 py-1 text-[#56CDAD]"
             >
-              {" "}
-              marketing
+              Marketing
             </button>
             <button
               type="button"
-              className=" text-[#FFB836] border-2 border-[#FFB836]  rounded-full  px-1.5"
+              className="text-[#FFB836] border-2 border-[#FFB836] rounded-full px-2 py-1"
             >
-              {" "}
               Design
             </button>
           </div>
         </div>
       </div>
-      <div className="mr-6 flex items-center  ">
+      <div className="flex justify-end mt-4 md:mt-0">
         <Link href="/IntershipDes">
           <button
             type="button"
-            className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-primary  "
+            className="text-white px-8 py-2 flex items-center bg-primary rounded-lg"
           >
             Apply
           </button>

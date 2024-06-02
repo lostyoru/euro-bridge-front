@@ -1,0 +1,25 @@
+{
+    "types_of_employment": [
+      "Full time",
+      "Part time",
+      "Remote"
+    ],
+    "fields_of_study": [
+      "Engineering",
+      "Computer Science",
+      "Marketing",
+      "Business",
+      "Human Resource",
+      "Finance",
+      "Environmental Science"
+    ],
+    "durations": [
+      "1 month",
+      "2 months",
+      "3 months",
+      "6 months",
+      "12 months",
+      "18 months"
+    ]
+  }
+  

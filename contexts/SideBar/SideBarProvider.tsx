@@ -1,135 +1,121 @@
-"use client"
-import React from 'react'
-import { useState } from 'react';
-import { TbMessage2 } from "react-icons/tb";
-import { RxFileText } from "react-icons/rx";
-import { RiSearchLine } from "react-icons/ri";
-import { IoPersonOutline } from "react-icons/io5";
-import { TbBuildingSkyscraper } from "react-icons/tb";
-import { MdOutlineSettings } from "react-icons/md";
-import sideBarSvg from '../../public/sideBarSvg.svg';
-import logo from "../../public/eurobridg.svg";
-import avatar from '../../public/Avatar.png';
-import { SideBarElement } from '@/types/sideBarElement';
-import Link from 'next/link';
+'use client';
+import React, { useEffect, useState } from 'react';
 import { SideBarContext } from './SideBarContext';
-function SideBarProvider({
-    children,
-  }: {
-    children: React.ReactNode;
-  }){
-    const [links, setLinks] = useState<SideBarElement[]>([
+import useAuth from '@/hooks/useAuth';
+import { SideBarElement } from '@/types/sideBarElement';
+import { TbMessage2 } from 'react-icons/tb';
+import { RxFileText } from 'react-icons/rx';
+import { RiSearchLine } from 'react-icons/ri';
+import { IoPersonOutline } from 'react-icons/io5';
+import { TbBuildingSkyscraper } from 'react-icons/tb';
+import { MdOutlineSettings } from 'react-icons/md';
+import { LuClipboardList } from 'react-icons/lu';
+import { INTERSHIP_SEEKER_LINKS, COMPANY_LINKS } from './SideBarContext';
+const SideBarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { auth }: any = useAuth();
+
+  const [links, setLinks] = useState<SideBarElement[]>(() => {
+    if (auth?.user?.role === 'INTERSHIP_SEEKER') {
+      return [
         {
           name: 'Messages',
-          icon(color: string){ 
-            return (
-              <TbMessage2 className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
-            )
-          },
+          icon: (color: string) => <TbMessage2 className='mx-3 side-bar-icons' style={{ color }} />,
           active: false,
-          link: "http://localhost:3000/chat"
+          link: 'http://localhost:3000/chat'
         },
         {
           name: 'My Applications',
-          icon(color: string){ 
-            return (
-              <RxFileText className='mx-3 side-bar-icons'  style={{ color: `${color}` }}/>
-            )
-          },
+          icon: (color: string) => <RxFileText className='mx-3 side-bar-icons' style={{ color }} />,
           active: false,
-          link: "http://localhost:3000/myapplications"
+          link: 'http://localhost:3000/myapplications'
         },
         {
           name: 'Find Interships',
-          icon(color: string){ 
-            return (
-              <RiSearchLine className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
-            )
-          },
+          icon: (color: string) => <RiSearchLine className='mx-3 side-bar-icons' style={{ color }} />,
           active: false,
-          link: "http://localhost:3000/Intershipsauth"
+          link: 'http://localhost:3000/Intershipsauth'
         },
         {
           name: 'Browse Companies',
-          icon(color: string){ 
-            return (
-              <TbBuildingSkyscraper className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
-            )
-          },
+          icon: (color: string) => <TbBuildingSkyscraper className='mx-3 side-bar-icons' style={{ color }} />,
           active: false,
-          link: "http://localhost:3000/Companiesauth"
+          link: 'http://localhost:3000/Companiesauth'
         },
         {
           name: 'My Public Profile',
-          icon(color: string){ 
-            return (
-              <IoPersonOutline className='mx-3 side-bar-icons' style={{ color: `${color}` }}/>
-            )
-          },
+          icon: (color: string) => <IoPersonOutline className='mx-3 side-bar-icons' style={{ color }} />,
           active: false,
-          link: "http://localhost:3000/MyProfile"
+          link: 'http://localhost:3000/MyProfile'
         }
-      ])
-    
-      const [settings, setSettings] = useState<SideBarElement>({
-        name: 'Settings',
-        icon(color: string){ 
-          return (
-            <MdOutlineSettings className="side-bar-icons mx-3 sm:ml-2 sm:mr-3" style={{ color: `${color}` }} />
-          )
+      ];
+    } else if (auth?.user?.role === 'COMPANY') {
+      return [
+        {
+          name: 'Messages',
+          icon: (color: string) => <TbMessage2 className='mx-3 side-bar-icons' style={{ color }} />,
+          active: true,
+          link: 'http://localhost:3000/chat'
         },
-        active: false,
-        link: "http://localhost:3000/profileSettings"
-      })
-    
-      const handleClick = (index: number) => {
-        setSettings({
-          ...settings,
-          active: false
-        });
-        const newLinks = links.map((link, i) => {
-          if (i === index) {
-            return {
-              ...link,
-              active: true
-            }
-          } else {
-            return {
-              ...link,
-              active: false
-            }
-          }
-        })
-    
-        setLinks(newLinks)
-        console.log("the side bar state changed")
-      }
-    
-      const handleClickSettings = () => {
-        setSettings({
-          ...settings,
-          active: true
-        });
-        const newLinks = links.map((link) => {
-          return {
-            ...link,
-            active: false
-          }
-        })
-        
-        setLinks(newLinks)
-        console.log("the state changed")
-      }
+        {
+          name: 'Company Profile',
+          icon: (color: string) => <IoPersonOutline className='mx-3 side-bar-icons' style={{ color }} />,
+          active: false,
+          link: 'http://localhost:3000/MyProfile'
+        },
+        {
+          name: 'Intership Listing',
+          icon: (color: string) => <LuClipboardList className='mx-3 side-bar-icons' style={{ color }} />,
+          active: false,
+          link: 'http://localhost:3000/IntershipListing'
+        }
+      ];
+    } else {
+      return [];
+    }
+  });
 
-      const handleSideBar = (newLinks: SideBarElement[], newSetting: SideBarElement) => {
-        setLinks(newLinks);
-        setSettings(newSetting);
-      }
+  const [settings, setSettings] = useState<SideBarElement>({
+    name: 'Settings',
+    icon: (color: string) => <MdOutlineSettings className="side-bar-icons mx-3 sm:ml-2 sm:mr-3" style={{ color }} />,
+    active: false,
+    link: 'http://localhost:3000/profileSettings'
+  });
+
+  const handleClick = (index: number) => {
+    setSettings(prevSettings => ({ ...prevSettings, active: false }));
+    setLinks(prevLinks =>
+      prevLinks.map((link, i) => ({
+        ...link,
+        active: i === index
+      }))
+    );
+  };
+
+  const handleClickSettings = () => {
+    setSettings(prevSettings => ({ ...prevSettings, active: true }));
+    setLinks(prevLinks =>
+      prevLinks.map(link => ({
+        ...link,
+        active: false
+      }))
+    );
+  };
+
+  const handleSideBar = (newLinks: SideBarElement[], newSetting: SideBarElement) => {
+    setLinks(newLinks);
+    setSettings(newSetting);
+  };
+
+  useEffect(() => {
+    setLinks(auth?.user?.role === 'INTERSHIP_SEEKER' ? INTERSHIP_SEEKER_LINKS : COMPANY_LINKS);
+  }, [auth]);
+    
+
   return (
     <SideBarContext.Provider value={{ links, settings, handleClick, handleClickSettings, handleSideBar }}>
-    {children}
+      {children}
     </SideBarContext.Provider>
-  )
-}
+  );
+};
 
-export default SideBarProvider
+export default SideBarProvider;

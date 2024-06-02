@@ -8,6 +8,7 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 function Footer() {
   return (
     <footer className="footer">
@@ -29,7 +30,7 @@ function Footer() {
             type="button"
             className="px-4 py-3 text-[#FFFFFF]  bg-primary lg:mr-14 text-xs font-bold w-24"
           >
-            Sign Up
+            <Link href="/auth">Sign Up</Link>
           </button>
         </div>
 

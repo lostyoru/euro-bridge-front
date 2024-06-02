@@ -37,13 +37,13 @@ const Navbar = () => {
             type="button"
             className=" border-r-2 p-4 text-primary ml-10 capitalize"
           >
-            login
+            <Link href="/auth">Login</Link>
           </button>
           <button
             type="button"
             className=" p-4 text-[#FFFFFF]  bg-primary mr-14 ml-8"
           >
-            Sign Up
+            <Link href="/auth">Sign Up</Link>
           </button>
         </div>
       </div>

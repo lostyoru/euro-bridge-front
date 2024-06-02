@@ -9,7 +9,9 @@ import ResponsiveDatePickers from './Date';
 import FormControl from '@mui/material/FormControl';
 import { SelectChangeEvent } from '@mui/material/Select';
 import SelectGender from './SelectGender';
-
+import  useAuth from '@/hooks/useAuth';
+import useAxiosPrivate from '@/hooks/useAxiosPrivate';
+import { useRouter } from 'next/navigation';
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -44,10 +46,17 @@ function a11yProps(index: number) {
 }
 
 export default function Settings() {
-  const [gender, setGender] = React.useState('');
+  const { auth, setAuth }: any = useAuth();
+  const [gender, setGender] = React.useState(auth?.user.gender);
   const [value, setValue] = React.useState(0);
-  const [pfp , setPfp] = React.useState('/AvatarPro.png');
-  const [phone, setPhone] = React.useState('+44 1245 572 135');
+  const [pfp , setPfp] = React.useState(auth?.user?.image);
+  const [phone, setPhone] = React.useState(auth?.user?.phone);
+  const [email, setEmail] = React.useState(auth?.user?.email);
+  const [fullname, setFullname] = React.useState(auth?.user?.name);
+  const [dob, setDob] = React.useState(auth?.user?.dob);
+  const axiosPrivate = useAxiosPrivate();
+  const router = useRouter();
+  
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -73,6 +82,38 @@ export default function Settings() {
 const handleChangeGender = (event: SelectChangeEvent) => {
     setGender(event.target.value as string);
   };
+
+  const handleSubmite = async (e: any) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', fullname);
+    formData.append('phone', phone);
+    formData.append('email', email);
+    formData.append('gender', gender);
+    formData.append('dob', dob);
+    
+    const fileInput = document.getElementById('upload-pfp') as HTMLInputElement;
+    if (fileInput.files?.length) {
+      formData.append('file', fileInput.files[0]);
+    }
+    try {
+      console.log("dob", dob);
+      console.log("type of dob", typeof dob);
+      const response = await axiosPrivate.put(`/users/${auth.user.id}`, formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          
+        }
+      },
+      );
+      console.log("response", response.data);
+      setAuth(response.data);
+    }catch (error) {
+      console.log(error);
+  }
+  }
+
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -103,7 +144,7 @@ const handleChangeGender = (event: SelectChangeEvent) => {
                         <Image src={pfp} alt='profile' width={120} height={120} className='rounded-full' id='profilepfp'/>
                     </div>
                     <div className='w-1/2 border-2 border-red-50 h-4/5 relative mx-5 cursor-pointer'>
-                        <input type="file" name="upload-pfp" id="upload-pfp" className='h-40 w-full z-10 opacity-0 '/>
+                        <input type="file" name="file" id="upload-pfp" className='h-40 w-full z-10 opacity-0 '/>
                         <Image src={uploadImage} alt='upload' className='absolute top-0 left-0 z-0 h-full' onClick={handleUpload}/>
                     </div>
                 </div>
@@ -117,20 +158,20 @@ const handleChangeGender = (event: SelectChangeEvent) => {
             <div className='w-3/4 h-full px-10 py-2'>
                 <label htmlFor="fullname" className='font-bold text-[#515B6F]'>Full Name</label>
                 <br />
-                <input type="text" name="fullname" id="fullname" className='mb-5 mt-3 w-4/5 h-10 border-2 border-gray-200 outline-none'/>
+                <input type="text" name="fullname" id="fullname" className=' p-2 mb-5 mt-3 w-4/5 h-10 border-2 border-gray-200 outline-none' value={fullname} onChange={e => setFullname(e.target.value)}/>
                 <br />
                 <label htmlFor="phone-number" className='mr-36 font-bold text-[#515B6F]'>Phone Number</label>
                 <label htmlFor="email" className='font-bold text-[#515B6F]'>Email</label>
                 <br />
-                <input type="tel" name="phone-number" id="phone-number" className='mb-5 mr-9 mt-3 w-1/3 h-10 border-2 border-gray-200 outline-none'/>
-                <input type="email" name="email" id="email" className='mb-5 mt-3 w-2/5 h-10 border-2 border-gray-200 outline-none'/>
+                <input type="tel" name="phone-number" id="phone-number" className='p-2 mb-5 mr-9 mt-3 w-1/3 h-10 border-2 border-gray-200 outline-none' value={phone} onChange={e => setPhone(e.target.value)}/>
+                <input type="email" name="email" id="email" className='p-2 mb-5 mt-3 w-2/5 h-10 border-2 border-gray-200 outline-none' value={email} onChange={e => setEmail(e.target.value)}/>
                 <br />
                 <label htmlFor="date-of-birth" className='font-bold mr-40 text-[#515B6F]'>Date of Birth</label>
                 <label htmlFor="gender" className=' text-[#515B6F] font-bold'>Gender</label>
                 <br />
                 <div className="flex flex-row ">
                     <div className="w-1/3 mt-3 mb-5 mr-9">
-                        <ResponsiveDatePickers />
+                        <ResponsiveDatePickers date={dob} setDate={setDob}/>
                     </div>
                     <div className="w-1/3 mt-3 mb-5">
                         <SelectGender gender={gender} setGender={setGender} handleChangeGender={handleChangeGender} />
@@ -143,6 +184,7 @@ const handleChangeGender = (event: SelectChangeEvent) => {
         <button
             type="button"
             className="p-4 text-[#FFFFFF] bg-primary mr-14 ml-8 w-36 absolute -bottom-10 right-0" 
+            onClick={e => handleSubmite(e)}
           >
             Save Profile
         </button>
@@ -165,13 +207,13 @@ const handleChangeGender = (event: SelectChangeEvent) => {
                 </p>
             </div>
             <div className='w-2/4 h-full'>
-                <FormControl fullWidth className='relative py-10'>
+                <FormControl fullWidth className='relative py-10' onSubmit={e => handleSubmite(e)}>
                     <div>
-                        <p className='text-[#25324B]'>jakegyll@email.com</p>
+                        <p className='text-[#25324B]'>{auth.user.email}</p>
                         <p className='text-sm text-[#7C8493] mb-3 '>Your email address is verified.</p>
                     </div>
                     <label htmlFor="update-email" className='mb-3 text-[#515B6F] font-bold'>Update Email</label>
-                    <input type="email" name="update-email" id="update-email" placeholder='Enter your new email' className='mb-5 px-2 py-1 w-3/5 h-10 border-2 border-gray-200 outline-none'/>
+                    <input type="email" name="update-email" id="update-email" placeholder='Enter your new email' className='p-2 mb-5 px-2 py-1 w-3/5 h-10 border-2 border-gray-200 outline-none'/>
                     <button
                         type="button"
                         className="p-4 text-[#FFFFFF] bg-primary mr-14 w-36" 
