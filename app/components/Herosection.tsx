@@ -18,7 +18,7 @@ function Herosection() {
           
     </div>
     <div className='pl-16 mb-8'>
-      <Search />
+      {/* <Search /> */}
       <p className='text-[#202430]'>
         Popular : UI Designer, UX Researcher, Android, Admin
       </p>

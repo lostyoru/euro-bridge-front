@@ -10,10 +10,16 @@ import { useContext } from "react";
 import useAuth from "@/hooks/useAuth";
 import RequireAuth from "../components/auth/RequireAuth";
 import PersistentLogin from "../components/PersistentLogin";
+import { useState } from "react";
 function Companieauth() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);
   const { auth }: any = useAuth();
   const { links, settings, handleClick, handleClickSettings, handleSideBar } = useContext(SideBarContext);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
   useEffect(() => {
     const newLinks = links.map((link, index) => {
       if (index === 3) {
@@ -45,7 +51,7 @@ function Companieauth() {
         <hr />
 
         <div className="mt-6  flex justify-center ">
-          <Search />
+          <Search onChange={handleSearchChange}/>
         </div>
         </div>
         <p className="text-[26px] font-bold  font-body mb-10">All companies</p>

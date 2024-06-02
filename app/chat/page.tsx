@@ -29,6 +29,7 @@ const Messages: NextPage = () => {
         id: -1, 
         lastMessage: '',
         lastMessageTime: '',
+        image: '',
         contact: {
           id: -1,
           name: '',

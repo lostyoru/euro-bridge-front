@@ -44,14 +44,18 @@ const FormSignup = (source:FormSignupProps) => {
         const v1 = FULL_NAME_REGEX.test(fullname);
         const v2 = PASSWORD_REGEX.test(password);
         const v3 = email.includes('@');
-        if(!v1 || !v2 || !v3) {
+        if(!v1 || !v2 || !v3 || !accountType) {
             setShowError(true);
-            setError('Invalid email, password or name');
+            if(!accountType){
+                setError('Select account type');
+            }else{
+                 setError('Invalid email, password or name');
+            }
             return;
         }
         try {
             const res = await axios.post(`/auth/signup`, 
-             JSON.stringify({ email, password, name: fullname, role: accountType }), {
+             { email, password, name: fullname, role: accountType }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

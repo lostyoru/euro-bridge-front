@@ -1,10 +1,10 @@
 {
-    "types_of_employment": [
+    "Types of Employement": [
       "Full time",
       "Part time",
       "Remote"
     ],
-    "fields_of_study": [
+    "Fields of study": [
       "Engineering",
       "Computer Science",
       "Marketing",
@@ -13,13 +13,13 @@
       "Finance",
       "Environmental Science"
     ],
-    "durations": [
-      "1 month",
-      "2 months",
-      "3 months",
-      "6 months",
-      "12 months",
-      "18 months"
+    "Durations": [
+      "1 Month",
+      "2 Months",
+      "3 Months",
+      "6 Months",
+      "12 Months",
+      "18 Months"
     ]
   }
   

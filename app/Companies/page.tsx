@@ -1,11 +1,20 @@
+"use client";
 import React from "react";
 import Search from "../components/Search";
 import Image from "next/image";
 import CompanyCard from "../components/CompanyCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-function page() {
+import { useState } from "react";
+function Page() {
   const companies = Array(6).fill([1, 2, 3, 4, 5, 6]);
+
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
   return (
     <>
       <Navbar />
@@ -30,7 +39,7 @@ function page() {
         </p>
 
         <div className="mb-10">
-          <Search />
+          <Search onChange={handleSearchChange} />
           <p className="text-[#515B6F] text-[14px]">Popular : Twitter, Microsoft, Apple, Facebook</p>
         </div>
       </div>
@@ -60,4 +69,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

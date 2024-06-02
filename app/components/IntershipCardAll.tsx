@@ -2,20 +2,22 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 type Props = {
+  key: number;
   post: string;
   location: string;
   image: string;
+  intership: any;
 };
 
 
 
 function IntershipCardAll(source: Props) {
+  const { key } = source;
   return (
     
     <div className="flex flex-row justify-between border-2  bg-white w-full my-3">
       <div className=" flex flex-row justify-start items-center ">
         
-        <Link href="/Intership" className="mx-5">
           <Image
             src={source.image}
             alt="intership"
@@ -23,7 +25,7 @@ function IntershipCardAll(source: Props) {
             height={50}
             className="ml-4"
           />
-        </Link>
+
         <div className="flex flex-col leading-[1.8rem] p-5 ">
           <h1 className="text-black font-bold my-2"> {source.post}</h1>
           <h2 className="text-[#515B6F] mb-3"> {source.location}</h2>
@@ -53,7 +55,7 @@ function IntershipCardAll(source: Props) {
         </div>
       </div>
       <div className="mr-6 flex items-center  ">
-      <Link href="/Intership">
+      <Link href={`/intership/${key}`}>
         <button
           type="button"
           className="  text-[#FFFFFF] px-8 h-10 flex items-center bg-primary  "

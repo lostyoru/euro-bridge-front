@@ -1,5 +1,4 @@
-// components/IntershipsListings/IntershipsListing.tsx
-'use client';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -10,6 +9,9 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Link from 'next/link';
+import useAuth from '@/hooks/useAuth';
+import useAxiosPrivate from '@/hooks/useAxiosPrivate';
+import CircularProgress from '@mui/material/CircularProgress'; // Import CircularProgress for loading indicator
 
 interface Column {
   id: 'title' | 'postedDate' | 'finalDate' | 'type' | 'applicants' | 'remove';
@@ -39,35 +41,45 @@ interface Data {
 
 const IntershipsListings = () => {
   const [rows, setRows] = useState<Data[]>([]);
+  const [loading, setLoading] = useState(true); // Add loading state
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const { auth }: any = useAuth();
+  const axiosPrivate = useAxiosPrivate();
 
   useEffect(() => {
     const fetchInternships = async () => {
-      const response = await fetch('/api/internships');
-      const data = await response.json();
-      const formattedData = data.map((item: any) => ({
-        title: (
-          <Link href={`/IntershipListings/${item.id}`}>
-            <p className='text-primary'>{item.title}</p>
-          </Link>
-        ),
-        postedDate: item.postedDate,
-        finalDate: item.finalDate,
-        type: (
-          <button
-            type="button"
-            className="bg-white border-2 border-primary rounded-full text-primary px-2 py-1"
-          >
-            {item.type}
-          </button>
-        ),
-        applicants: item.appliedUsers.length,
-        remove: (
-          <button className='bg-red-500 text-white px-3 py-1 rounded-md'>Delete</button>
-        ),
-      }));
-      setRows(formattedData);
+      try {
+        const response = await axiosPrivate.get(`/users/${auth?.user?.id}/company/postedinterships`);
+        const data = response.data;
+        console.log(data);
+        const formattedData = data.map((item: any) => ({
+          title: (
+            <Link href={`/IntershipListings/${item.id}`}>
+              <p className='text-primary'>{item.title}</p>
+            </Link>
+          ),
+          postedDate: item.postedDate,
+          finalDate: item.finalDate,
+          type: (
+            <button
+              type="button"
+              className="bg-white border-2 border-primary rounded-full text-primary px-2 py-1"
+            >
+              {item.type}
+            </button>
+          ),
+          applicants: item.applicants,
+          remove: (
+            <button className='bg-red-500 text-white px-3 py-1 rounded-md'>Delete</button>
+          ),
+        }));
+        setRows(formattedData);
+        setLoading(false); // Set loading to false after data is fetched
+      } catch (error) {
+        console.error('Error fetching internships:', error);
+        setLoading(false); // Set loading to false in case of error
+      }
     };
 
     fetchInternships();
@@ -85,39 +97,45 @@ const IntershipsListings = () => {
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <TableContainer sx={{ maxHeight: 500 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow className='font-bold'>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth, textAlign: 'center' }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => (
-                <TableRow hover role="checkbox" tabIndex={-1} key={index}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth, textAlign: 'center' }}>
-                        {column.format && typeof value === 'number'
-                          ? column.format(value)
-                          : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
+        {loading ? (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px' }}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow className='font-bold'>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth, textAlign: 'center' }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={index}>
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth, textAlign: 'center' }}>
+                          {column.format && typeof value === 'number'
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        )}
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[5, 25, 100]}

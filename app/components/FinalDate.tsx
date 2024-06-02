@@ -4,19 +4,19 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 export default function ResponsiveDatePickers({
-  date,
-  setDate
+  finalDate,
+  setFinalDate
 }: {
-  date: string,
-  setDate: (date: string) => void
+  finalDate: string,
+  setFinalDate: (date: string) => void
 }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        defaultValue={dayjs(date)}
+        defaultValue={dayjs(finalDate)}
         onChange={(newValue: Dayjs | null) => {
           if (newValue) {
-            setDate(newValue.format('YYYY-MM-DD'));
+            setFinalDate(newValue.format('YYYY-MM-DD'));
           }
         }}
       />

@@ -54,6 +54,7 @@ export default function Settings() {
   const [email, setEmail] = React.useState(auth?.user?.email);
   const [fullname, setFullname] = React.useState(auth?.user?.name);
   const [dob, setDob] = React.useState(auth?.user?.dob);
+  const [location, setLocation] = React.useState(auth?.user?.location);
   const axiosPrivate = useAxiosPrivate();
   const router = useRouter();
   
@@ -91,6 +92,7 @@ const handleChangeGender = (event: SelectChangeEvent) => {
     formData.append('email', email);
     formData.append('gender', gender);
     formData.append('dob', dob);
+    formData.append('location', location);
     
     const fileInput = document.getElementById('upload-pfp') as HTMLInputElement;
     if (fileInput.files?.length) {
@@ -178,6 +180,17 @@ const handleChangeGender = (event: SelectChangeEvent) => {
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <hr className='h-2 my-5'/>
+        <div className='flex flex-row justify-between w-full'>
+            <div className='w-1/4 mr-20'>
+                <h3 className='font-bold my-2 text-[#25324B]'>Location</h3>
+            </div>
+            <div className='w-3/4 h-full px-10 py-2'>
+                <label htmlFor="location" className='font-bold text-[#515B6F]'>Location</label>
+                <br />
+                <input type="text" name="location" id="location" className=' p-2 mb-5 mt-3 w-4/5 h-10 border-2 border-gray-200 outline-none' value={location} onChange={e => setLocation(e.target.value)}/>
             </div>
         </div>
         <hr className='h-2 my-5'/>

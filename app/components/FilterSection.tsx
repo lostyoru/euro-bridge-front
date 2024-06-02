@@ -2,83 +2,83 @@
 import { useState, useEffect } from 'react';
 import filterData from '@/data/filter.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import { Filter } from '@/types/filter';
-import { InternshipFilterSidebarProps } from '@/types/filter';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FilterOptions } from '@/types/filter';
-const InternshipFilterSidebar: React.FC<InternshipFilterSidebarProps> = ({ onFilterChange }) => {
-  const [selectedFilters, setSelectedFilters] = useState<Filter[]>([]);
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FilterOptions, SelectedFilters } from '@/types/filter';
+
+interface FilterSectionProps {
+  onFilterChange: (filters: SelectedFilters) => void;
+}
+
+const FilterSection: React.FC<FilterSectionProps> = ({ onFilterChange }) => {
+  const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({});
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+
   const filterOptions: FilterOptions = filterData;
 
-  // Handle checkbox change
   const handleCheckboxChange = (category: string, subcategory: string) => {
-    const isChecked = selectedFilters.some(filter => filter.category === category && filter.subcategory === subcategory);
-
-    if (isChecked) {
-      setSelectedFilters(prevFilters => prevFilters.filter(filter => !(filter.category === category && filter.subcategory === subcategory)));
-    } else {
-      setSelectedFilters(prevFilters => [...prevFilters, { category, subcategory }]);
-    }
+    setSelectedFilters((prevFilters) => {
+      const newFilters = { ...prevFilters };
+      if (newFilters[category]) {
+        if (newFilters[category].includes(subcategory)) {
+          newFilters[category] = newFilters[category].filter((item) => item !== subcategory);
+        } else {
+          newFilters[category].push(subcategory);
+        }
+      } else {
+        newFilters[category] = [subcategory];
+      }
+      return newFilters;
+    });
   };
 
-  // Toggle category expansion
   const toggleCategoryExpansion = (category: string) => {
     if (expandedCategories.includes(category)) {
-      setExpandedCategories(prevExpanded => prevExpanded.filter(expanded => expanded !== category));
+      setExpandedCategories((prevExpanded) =>
+        prevExpanded.filter((expanded) => expanded !== category)
+      );
     } else {
-      setExpandedCategories(prevExpanded => [...prevExpanded, category]);
+      setExpandedCategories((prevExpanded) => [...prevExpanded, category]);
     }
   };
 
-  // Apply filters and notify parent component
   useEffect(() => {
+    console.log('Selected filters:', selectedFilters);
     onFilterChange(selectedFilters);
   }, [selectedFilters, onFilterChange]);
 
   return (
     <div className="bg-white p-4 rounded-lg text-gray-700 w-2/12">
-      {/* Render category and subcategory checkboxes */}
       {Object.entries(filterOptions).map(([categoryName, categoryOptions]) => (
         <div key={categoryName} className="mb-4">
-          <div className="flex items-center cursor-pointer" onClick={() => toggleCategoryExpansion(categoryName)}>
-            <span className="font-semibold" style={{ color: '#515B6F', textTransform: 'capitalize' }}>{categoryName.replace(/_/g, ' ')}</span>
-            {expandedCategories.includes(categoryName) ? (
-              <FontAwesomeIcon icon={faAngleUp} className="ml-auto" />
-            ) : (
-              <FontAwesomeIcon icon={faAngleUp} className="ml-auto transform rotate-180" />
-            )}
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={() => toggleCategoryExpansion(categoryName)}
+          >
+            <span
+              className="font-semibold"
+              style={{ color: '#515B6F', textTransform: 'capitalize' }}
+            >
+              {categoryName.replace(/_/g, ' ')}
+            </span>
+            <FontAwesomeIcon
+              icon={expandedCategories.includes(categoryName) ? faAngleUp : faAngleDown}
+              className="ml-auto"
+            />
           </div>
           {expandedCategories.includes(categoryName) && (
             <ul className="ml-4 my-2">
-              {(categoryOptions as (string | { name: string; subfields: string[] })[]).map(option => (
-                <li key={typeof option === 'string' ? option : option.name} className="mb-2">
+              {categoryOptions.map((option) => (
+                <li key={option} className="mb-2">
                   <label className="flex items-center">
                     <input
                       type="checkbox"
                       className="mr-2"
-                      onChange={() => handleCheckboxChange(categoryName, typeof option === 'string' ? option : option.name)}
-                      checked={selectedFilters.some(filter => filter.category === categoryName && filter.subcategory === (typeof option === 'string' ? option : option.name))}
+                      onChange={() => handleCheckboxChange(categoryName, option)}
+                      checked={selectedFilters[categoryName]?.includes(option) || false}
                     />
-                    <span style={{ color: '#515B6F', textTransform: 'capitalize' }}>{typeof option === 'string' ? option : option.name}</span>
-                    {typeof option !== 'string' && expandedCategories.includes(categoryName) && (
-                      <ul className="ml-4">
-                        {option.subfields.map(subfield => (
-                          <li key={subfield} className="mb-1">
-                            <label className="flex items-center">
-                              <input
-                                type="checkbox"
-                                className="mr-2"
-                                onChange={() => handleCheckboxChange(categoryName, subfield)}
-                                checked={selectedFilters.some(filter => filter.category === categoryName && filter.subcategory === subfield)}
-                              />
-                              <span style={{ color: '#515B6F', textTransform: 'capitalize' }}>{subfield}</span>
-                            </label>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <span style={{ color: '#515B6F', textTransform: 'capitalize' }}>
+                      {option}
+                    </span>
                   </label>
                 </li>
               ))}
@@ -90,10 +90,4 @@ const InternshipFilterSidebar: React.FC<InternshipFilterSidebarProps> = ({ onFil
   );
 };
 
-export default InternshipFilterSidebar;
-
-
-
-
-
-
+export default FilterSection;

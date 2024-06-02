@@ -1,18 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Internship from "../Intershipsauth/[id]/page";
 
 type Props = {
   post: string;
   location: string;
   image: string;
+  intership: any;
 };
 
-function IntershipCardAllauth({ post, location, image }: Props) {
+function IntershipCardAllauth({ post, location, image, intership }: Props) {
   return (
     <div className="flex flex-col md:flex-row justify-between border-2 bg-white w-5/12 md:w-[calc(100%-4rem)] mx-auto p-4 md:p-6 mb-6 md:mb-0">
       <div className="flex flex-row justify-start gap-4 md:gap-10 items-center">
-        <Link href="/IntershipDes">
+        <Link href={`/Intershipsauth/${intership.id}`}>
           <Image
             src={image}
             alt="intership"
@@ -47,7 +49,7 @@ function IntershipCardAllauth({ post, location, image }: Props) {
         </div>
       </div>
       <div className="flex justify-end mt-4 md:mt-0">
-        <Link href="/IntershipDes">
+        <Link href={`/Intershipsauth/${intership.id}`}>
           <button
             type="button"
             className="text-white px-8 py-2 flex items-center bg-primary rounded-lg"

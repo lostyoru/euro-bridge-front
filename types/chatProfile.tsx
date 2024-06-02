@@ -4,6 +4,7 @@ export type chatProfile = {
     id: number,
     lastMessage: string,
     lastMessageTime: string,
+    image: string,
     contact: {
         id: number,
         name: string,

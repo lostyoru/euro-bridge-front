@@ -4,7 +4,12 @@ import countriesData from '@/data/countries.json';
 import { FiSearch } from "react-icons/fi";
 import { SlLocationPin } from "react-icons/sl";
 import { useState } from 'react';
-function Search() {
+
+interface SearchProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+function Search({ onChange }: SearchProps) {
   const [countries, setCountries] = useState(countriesData.countries);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -21,7 +26,12 @@ function Search() {
        <form action="" className='flex flex-row justify-between items-center h-full '>
           <div className="flex flex-row justify-center items-start h-10 mr-4 border-b">
             <FiSearch className='text-gray-400 self-center search-icons' />
-            <input type="text" placeholder='Search' className='w-50 ml-1 p-2 h-full border-none focus:outline-none' />
+            <input
+              type="text"
+              placeholder='Search'
+              className='w-50 ml-1 p-2 h-full border-none focus:outline-none'
+              onChange={onChange}
+            />
           </div>
 
           <div className='flex flex-row h-10 justify-center items-center'>
