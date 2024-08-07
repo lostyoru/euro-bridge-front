@@ -9,7 +9,7 @@ interface SearchProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Search({ onChange }: SearchProps) {
+function Search() {
   const [countries, setCountries] = useState(countriesData.countries);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -30,7 +30,7 @@ function Search({ onChange }: SearchProps) {
               type="text"
               placeholder='Search'
               className='w-50 ml-1 p-2 h-full border-none focus:outline-none'
-              onChange={onChange}
+              // onChange={onChange}
             />
           </div>
 

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
 import Search from "../components/Search";
 import Image from "next/image";
@@ -13,8 +13,9 @@ import useAuth from '@/hooks/useAuth';
 
 export default function Page() {
   const { auth }: any = useAuth();
-  const [internships, setInternships] = useState<Internship[]>([]);
-  const [filteredInternships, setFilteredInternships] = useState<Internship[]>([]);
+  const [internships, setInternships] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [filteredInternships, setFilteredInternships] = useState<any>([]);
   const [filters, setFilters] = useState<SelectedFilters>({});
   const [searchTerm, setSearchTerm] = useState<string>('');
   const axiosPrivate = useAxiosPrivate();
@@ -35,6 +36,7 @@ export default function Page() {
         console.log('Fetched internships:', response.data);
         setInternships(response.data);
         setFilteredInternships(response.data); // Update filteredInternships as well
+        setLoading(false); // Set loading to false when data fetching is complete
       } catch (error) {
         console.error('Error fetching internships:', error);
       }
@@ -48,7 +50,7 @@ export default function Page() {
     console.log('Current filters:', filters);
     console.log('Current search term:', searchTerm);
 
-    const filtered = internships.filter((internship) => {
+    const filtered = internships.filter((internship: any) => {
       console.log('Checking internship:', internship);
 
       // Check filters
@@ -80,7 +82,6 @@ export default function Page() {
     <div className="w-screen">
       <Navbar />
       <div className="flex">
-        <SideBar /> {/* Place the SideBar component here */}
         <div>
           <div className="flex flex-col justify-center items-center bg-[#F8F8FD]">
             {/* Your existing search and filter components */}
@@ -112,15 +113,19 @@ export default function Page() {
             <FilterSection onFilterChange={handleFilterChange} />
             <div className="flex flex-col w-8/12 mx-10">
               <p className="text-[32px] font-bold mb-10">All internships</p>
-              {filteredInternships.map((internship, index) => (
-                <IntershipCardAll
-                  key={index}
-                  image="https://res.cloudinary.com/dekmr7qlp/image/upload/v1713532458/Company_Logo_bfez8c.png"
-                  post={internship.title}
-                  location={internship.location}
-                  intership={internship}
-                />
-              ))}
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                filteredInternships.map((internship: any, index: any) => (
+                  <IntershipCardAll
+                    key={index}
+                    image={internship.company?.user?.image} 
+                    post={internship.title}
+                    location={internship.location}
+                    intership={internship}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>

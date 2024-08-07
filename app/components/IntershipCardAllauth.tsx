@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Internship from "../Intershipsauth/[id]/page";
+
 
 type Props = {
   post: string;
